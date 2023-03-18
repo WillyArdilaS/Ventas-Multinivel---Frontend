@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import SelectUser from "./components/general/SelectUser";
+import Login from "./components/general/LogIn";
+import SignUp from "./components/client_user/SignUp";
+import { useEffect, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [user, setUser] = useState("cliente");
+  const [gradient, setGradient] = useState("");
+  const [color1, setColor1] = useState("");
+  const [color2, setColor2] = useState("");
+
+  useEffect(() => {
+    if(user == "cliente") {
+      setGradient("from-lightGreen to-darkGreen")
+      setColor1("lightGreen");
+      setColor2("darkGreen"); 
+    } else {
+      setGradient("from-lightBlue to-darkBlue")
+      setColor1("lightBlue");
+      setColor2("darkBlue"); 
+    }
+    
+
+  }, [user])
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/*" element={<Login user={user} gradient={gradient} color2={color2} />} />
+        <Route path="/LogIn" element={<Login user={user} gradient={gradient} color2={color2} />} />
+        <Route path="/SignUp" element={<SignUp gradient={gradient} color2={color2} />} />
+      </Routes>
+    </BrowserRouter>
+    
+    
+
+    //<SelectUser setUser={setUser} />
+  );
 }
 
-export default App
+export default App;
