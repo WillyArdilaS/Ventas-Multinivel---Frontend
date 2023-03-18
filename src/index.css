@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans');
+@import url('https://fonts.googleapis.com/css2?family=Numans');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
