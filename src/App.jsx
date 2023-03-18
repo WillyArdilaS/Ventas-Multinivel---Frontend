@@ -27,15 +27,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/*" element={<Login user={user} gradient={gradient} color2={color2} />} />
-        <Route path="/LogIn" element={<Login user={user} gradient={gradient} color2={color2} />} />
+        <Route path="/*" element={<SelectUser setUser={setUser} />} />
+        <Route path="/LogIn" element={<Login gradient={gradient} color2={color2} />} />
         <Route path="/SignUp" element={<SignUp gradient={gradient} color2={color2} />} />
       </Routes>
     </BrowserRouter>
-    
-    
-
-    //<SelectUser setUser={setUser} />
   );
 }
 
