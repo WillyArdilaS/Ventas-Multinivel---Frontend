@@ -12,8 +12,8 @@ const ProductCard = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 002.25-2.25V6a2.25 2.25 0 00-2.25-2.25H6A2.25 2.25 0 003.75 6v2.25A2.25 2.25 0 006 10.5zm0 9.75h2.25A2.25 2.25 0 0010.5 18v-2.25a2.25 2.25 0 00-2.25-2.25H6a2.25 2.25 0 00-2.25 2.25V18A2.25 2.25 0 006 
                     20.25zm9.75-9.75H18a2.25 2.25 0 002.25-2.25V6A2.25 2.25 0 0018 3.75h-2.25A2.25 2.25 0 0013.5 6v2.25a2.25 2.25 0 002.25 2.25z"/></svg>
                     
-                    <input type="number" name="" id="" placeholder="Cantidad" className="w-2/3 ml-2 px-3 py-1 rounded-md bg-white shadow-md text-black font-medium font-paragraph 
-                    text-sm placeholder-slate-400 border-black border-x-2 border-y-2"/>
+                    <input type="number" name="" id="" placeholder="Cantidad" className="w-2/3 ml-2 px-2 py-2 rounded-md bg-white shadow-md text-black font-medium font-paragraph 
+                    text-xs placeholder-slate-400 border-black border-x-2 border-y-2"/>
                 </div>
 
                 <div id="details-price" className="flex items-center">
@@ -24,7 +24,7 @@ const ProductCard = () => {
                 </div> 
             </div>  
 
-            <button type="button" id="button-addProduct" className="w-3/4 inline-flex justify-center items-center -mb-6 mt-6 px-5 py-3 bg-yellow shadow-md text-white font-subtitle font-medium
+            <button type="button" id="button-addProduct" className="w-48 inline-flex justify-center items-center -mb-6 mt-6 px-5 py-3 bg-yellow shadow-md text-white font-subtitle font-medium
             text-sm text-center border-yellow border-x-2 border-y-2 rounded-lg hover:bg-white hover:text-yellow transition-colors">
                 <svg aria-hidden="true" className="mr-2 -ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" 
                 xmlns="http://www.w3.org/2000/svg"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 
