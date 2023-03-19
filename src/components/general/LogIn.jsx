@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import LateralMenuRV from "../salesRepresentative_user/LateralMenuRV";
 import ProductCard from "./ProductCard";
 
-const Login = ({gradient, color2}) => {
+const Login = ({gradient, color}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -14,10 +14,7 @@ const Login = ({gradient, color2}) => {
     }
 
     return (
-        <> 
-        <ProductCard/>    
-
-        <main className="container flex justify-center mx-auto mt-40 invisible">
+        <main className="container flex justify-center mx-auto mt-40">
             <article id="userSign" className={`w-3/5 2xl:w-1/5 xl:w-1/4 lg:w-1/3 md:w-2/5 sm:w-1/2 absolute rounded-t-2xl shadow-xl rounded-b-xl bg-gradient-to-b ` + gradient}>
                 <img src="https://res.cloudinary.com/dn1k0drir/image/upload/v1679111733/NatAmE/Logo_oeniv6.png" alt="Logo de la app" id="appLogo" width="350" height="250" 
                 className="mx-auto mt-8"/>
@@ -39,14 +36,12 @@ const Login = ({gradient, color2}) => {
 
                     <section className="flex justify-center pb-8 mx-10 mt-24">
                         <input type="button" id="button-signIn" value="Iniciar sesión" onClick={handleLogin}
-                        className={`w-1/2 px-4 py-3 border-white border-x-2 border-y-2 rounded-lg bg-white shadow-lg text-${color2} text-sm font-semibold font-title 
+                        className={`w-1/2 px-4 py-3 border-white border-x-2 border-y-2 rounded-lg bg-white shadow-lg text-${color} text-sm font-semibold font-title 
                         hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}/>
                     </section>
                 </form>
-        </article>
-    </main>
-        </>
-        
+            </article>
+        </main>
     )
 }
 

@@ -1,14 +1,15 @@
-const LateralMenu = ({gradient, color2}) => {
+const LateralMenu = ({gradient, color}) => {
     return (
         <div className="relative">
             <article className={`fixed w-1/6 top-0 left-0 h-full bg-gradient-to-b ` + gradient}>
-                <img src="https://res.cloudinary.com/dn1k0drir/image/upload/v1679111733/NatAmE/Logo_oeniv6.png" alt="Logo de la app" id="appLogo" width="250" height="200" className="mx-auto"/>
+                <img src="https://res.cloudinary.com/dn1k0drir/image/upload/v1679111733/NatAmE/Logo_oeniv6.png" alt="Logo de la app" id="appLogo" width="250" height="200" 
+                className="mx-auto"/>
 
                 <h1 className="text-center text-white text-lg font-medium font-subtitle"> Laura Ramírez - Cliente </h1>
 
                 <section className="flex flex-col justify-around items-center h-2/5 mt-12">
                     <button id="button-signIn" value="Iniciar sesión" className={`flex items-center w-3/5 px-4 py-3 border-white border-x-2 border-y-2 rounded-lg bg-white 
-                    shadow-lg text-${color2} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}> 
+                    shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}> 
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 
                         002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 
@@ -19,7 +20,7 @@ const LateralMenu = ({gradient, color2}) => {
                     </button>
 
                     <button id="button-signIn" value="Iniciar sesión" className={`flex items-center w-3/5 px-4 py-3 border-white border-x-2 border-y-2 rounded-lg bg-white 
-                    shadow-lg text-${color2} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}> 
+                    shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}> 
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 
                         3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 
@@ -27,7 +28,8 @@ const LateralMenu = ({gradient, color2}) => {
                         <span className="ml-2"> Ver carrito </span> 
                     </button>
 
-                    <button id="button-signIn" value="Iniciar sesión" className={`flex items-center w-3/5 px-4 py-3 border-white border-x-2 border-y-2 rounded-lg bg-white shadow-lg text-${color2} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}> 
+                    <button id="button-signIn" value="Iniciar sesión" className={`flex items-center w-3/5 px-4 py-3 border-white border-x-2 border-y-2 rounded-lg bg-white 
+                    shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}> 
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 
                         1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 
@@ -44,10 +46,11 @@ const LateralMenu = ({gradient, color2}) => {
                 </section>
 
                 <section className="flex flex-col justify-around items-center mt-52">
-                    <button id="button-signIn" value="Iniciar sesión" className={`flex items-center w-3/5 px-4 py-3 border-white border-x-2 border-y-2 rounded-lg bg-white shadow-lg text-${color2} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}> 
+                    <button id="button-signIn" value="Iniciar sesión" className={`flex items-center w-3/5 px-4 py-3 border-white border-x-2 border-y-2 rounded-lg bg-white 
+                    shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}> 
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 
-                        3m0 0l3 3m-3-3h12.75"/></svg>  
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 
+                        2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"/></svg>  
                         <span className="ml-2"> Cerrar sesión </span> 
                     </button>
                 </section>
