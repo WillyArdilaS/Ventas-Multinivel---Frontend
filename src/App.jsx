@@ -1,6 +1,6 @@
 import SelectUser from "./components/general/SelectUser";
 import Login from "./components/general/LogIn";
-import SignUp from "./components/client_user/SignUp";
+import SignUp from "./components/salesRepresentative_user/SignUp";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
