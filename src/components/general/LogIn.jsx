@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import LateralMenuRV from "../salesRepresentative_user/LateralMenuRV";
+import ProductCard from "./ProductCard";
 
 const Login = ({gradient, color2}) => {
     const [username, setUsername] = useState("");
@@ -12,7 +14,10 @@ const Login = ({gradient, color2}) => {
     }
 
     return (
-        <main className="container flex justify-center mx-auto mt-40">
+        <> 
+        <ProductCard/>    
+
+        <main className="container flex justify-center mx-auto mt-40 invisible">
             <article id="userSign" className={`w-3/5 2xl:w-1/5 xl:w-1/4 lg:w-1/3 md:w-2/5 sm:w-1/2 absolute rounded-t-2xl shadow-xl rounded-b-xl bg-gradient-to-b ` + gradient}>
                 <img src="https://res.cloudinary.com/dn1k0drir/image/upload/v1679111733/NatAmE/Logo_oeniv6.png" alt="Logo de la app" id="appLogo" width="350" height="250" 
                 className="mx-auto mt-8"/>
@@ -40,6 +45,8 @@ const Login = ({gradient, color2}) => {
                 </form>
         </article>
     </main>
+        </>
+        
     )
 }
 
