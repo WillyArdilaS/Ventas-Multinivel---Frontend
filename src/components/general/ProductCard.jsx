@@ -25,7 +25,7 @@ const ProductCard = ({info}) => {
                     20.25zm9.75-9.75H18a2.25 2.25 0 002.25-2.25V6A2.25 2.25 0 0018 3.75h-2.25A2.25 2.25 0 0013.5 6v2.25a2.25 2.25 0 002.25 2.25z"/></svg>
                     
                     <input type="number" name="" id="" placeholder="Cantidad" className="w-2/3 ml-2 px-2 py-2 rounded-md bg-white shadow-md text-black font-medium font-paragraph 
-                    text-xs placeholder-slate-400 border-black border-x-2 border-y-2" value={quantity} onChange={(e) => setQuantity(Number(e.target.value))} required/>
+                    text-xs placeholder-slate-400 border-black border-x-2 border-y-2" onChange={(e) => setQuantity(Number(e.target.value))} required/>
                 </div>
 
                 <div id="details-price" className="flex items-center">
