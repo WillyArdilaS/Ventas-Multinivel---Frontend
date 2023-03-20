@@ -5,26 +5,19 @@ import { useState, useEffect } from "react";
 const ProductCatalog = () => {
 
   const [products, setProducts] = useState([]);
+
   useEffect(()=>{
     setProducts(productsTemp);
     },[])
 
-
-  
-
- 
   return (
-    <article className="fixed flex justify-between top-0 right-0 w-10/12 px-8 h-screen overflow-y-auto">
-        <section className="flex flex-col ">
-            <section className="flex mb-16">
-                {
-                    products.map(product=>(
-                        <ProductCard key={product.id} info={product} />
-                    ))
-                }
-                
-            </section>
-
+    <article className="fixed w-10/12 h-screen top-24 right-0 px-12 overflow-y-auto">
+        <section className="grid xl:grid-cols-3 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 h-fit mt-24 pb-6">
+            {
+                products.map(product=>(
+                    <ProductCard key={product.id} info={product} />
+                ))
+            }
         </section>
     </article>
   )

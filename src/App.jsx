@@ -1,28 +1,34 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CartProvider from "./context/CartContext";
-import SelectUser from "./pages/SelectUser";
+import QualificationRV from "./components/client_user/qualificationRV";
 import Login from "./components/general/LogIn";
-import SignUpRV from "./components/salesRepresentative_user/SignUpRV";
-import ShoppingCartContainer from "./components/client_user/ShoppingCartContainer";
+import SelectUser from "./pages/SelectUser";
+import SignUpC from "./pages/SignUpC";
+import SignUpR from "./pages/SignUpR";
+import ShoppingCart from "./pages/ShoppingCart";
 import Home from "./pages/Home";
 
 function App() {
-  const [user, setUser] = useState("cliente");
+  const [user, setUser] = useState("");
   const [gradient, setGradient] = useState("");
   const [color, setColor] = useState("");
+
+  useEffect(() => {
+    const savedUser = sessionStorage.getItem("user");
+    setUser(savedUser);
+  }, [])
+  
 
   useEffect(() => {
     if(user == "cliente") {
       setGradient("from-lightGreen to-darkGreen")
       setColor("darkGreen"); 
-    } else {
+    } else if(user == "representante") {
       setGradient("from-lightBlue to-darkBlue")
       setColor("darkBlue"); 
     }
-    
-
-  }, [user])
+  }, [user]);
 
   return (
     <BrowserRouter>
@@ -30,9 +36,11 @@ function App() {
       <Routes>
         <Route path="/*" element={<SelectUser setUser={setUser} />} />
         <Route path="/LogIn" element={<Login gradient={gradient} color={color} />} />
-        <Route path="/SignUp" element={<SignUpRV gradient={gradient} color={color} />} />
-        <Route path="/Home" element={<Home gradient={gradient} color={color} />} />
-        <Route path="/ShoppingCart" element={<ShoppingCartContainer gradient={gradient} color={color} />} />
+        <Route path="/SignUpClient" element={<SignUpC setUser={setUser} gradient={gradient} color={color}/>} />
+        <Route path="/SignUpRV" element={<SignUpR setUser={setUser} gradient={gradient} color={color}/>} />
+        <Route path="/ShoppingCart" element={<ShoppingCart setUser={setUser} gradient={gradient} color={color} />} />
+        <Route path="/QualificationRV" element={<QualificationRV setUser={setUser} gradient={gradient} color={color} />} />
+        <Route path="/Home" element={<Home setUser={setUser} gradient={gradient} color={color} />} />
       </Routes>
     </CartProvider>
     </BrowserRouter>

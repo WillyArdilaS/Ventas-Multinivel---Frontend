@@ -1,16 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import LateralMenuRV from "../salesRepresentative_user/LateralMenuRV";
-import ProductCard from "./ProductCard";
 
-const Login = ({gradient, color}) => {
+const LogIn = ({gradient, color}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
     const navigate = useNavigate();
     
     const handleLogin = () => {
-        console.log("Login funcionando");
+        navigate("/Home");
     }
 
     return (
@@ -45,4 +43,4 @@ const Login = ({gradient, color}) => {
     )
 }
 
-export default Login;
+export default LogIn;
