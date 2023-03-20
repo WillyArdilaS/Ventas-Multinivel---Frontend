@@ -11,7 +11,9 @@ const SignUpR = ({setUser, gradient, color}) => {
                 <LateralMenuClient setUser={setUser} gradient={gradient} color={color}/> 
             :   <LateralMenuMaster setUser={setUser} gradient={gradient} color={color}/> }
             
-            <SignUpRV/>
+            <div className="w-10/12 fixed right-0 h-full overflow-y-auto">
+              <SignUpRV/>
+            </div> 
         </div>    
         </>
   )

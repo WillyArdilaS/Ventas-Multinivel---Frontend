@@ -20,9 +20,8 @@ const SignUpRV = () => {
     }
 
     return (
-        <main className="container flex justify-center mx-auto mt-16">
-            <article id="userRegister" className="w-11/12 2xl:w-1/4 xl:w-2/5 lg:w-1/2 md:w-3/5 sm:w-3/4 absolute rounded-t-2xl rounded-b-xl bg-gradient-to-b 
-            from-lightBlue to-darkBlue">
+        <main className="container flex justify-center mx-auto mt-12">
+            <article id="userRegister" className="w-1/3 absolute rounded-2xl bg-gradient-to-b from-lightBlue to-darkBlue">
                 <img src="https://res.cloudinary.com/dn1k0drir/image/upload/v1679111733/NatAmE/Logo_oeniv6.png" alt="Logo de la app" id="appLogo" width="350" height="250" 
                 className="mx-auto mt-4"/>
                 
