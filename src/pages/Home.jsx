@@ -1,4 +1,4 @@
-import LateralMenu from "../components/salesRepresentative_user/LateralMenuRV";
+import LateralMenu from "../components/client_user/LateralMenuClient";
 import ProductCatalog from "../components/general/ProductCatalog";
 
 const Home = ({gradient, color}) => {
