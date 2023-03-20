@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
-const SignUp = ({gradient, color}) => {
+const SignUpClient = () => {
     const [idType, setIdType] = useState("");
     const [idNumber, setIdNumber] = useState("");
     const [name, setName] = useState("");
@@ -15,15 +14,14 @@ const SignUp = ({gradient, color}) => {
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
-    const navigate = useNavigate();
-
     const handleCreateUser = () => {
         console.log("Registro funcionando");
     }
 
     return (
         <main className="container flex justify-center mx-auto mt-16">
-            <article id="userRegister" className={`w-11/12 2xl:w-1/4 xl:w-2/5 lg:w-1/2 md:w-3/5 sm:w-3/4 absolute rounded-t-2xl rounded-b-xl bg-gradient-to-b ` + gradient}>
+            <article id="userRegister" className="w-11/12 2xl:w-1/4 xl:w-2/5 lg:w-1/2 md:w-3/5 sm:w-3/4 absolute rounded-t-2xl rounded-b-xl bg-gradient-to-b 
+            from-lightGreen to-darkGreen">
                 <img src="https://res.cloudinary.com/dn1k0drir/image/upload/v1679111733/NatAmE/Logo_oeniv6.png" alt="Logo de la app" id="appLogo" width="350" height="250" 
                 className="mx-auto mt-4"/>
                 
@@ -132,10 +130,10 @@ const SignUp = ({gradient, color}) => {
                         onChange={(e) => setPasswordConfirmation(e.target.value)} required/>
                     </div>
 
-                    <section className="flex justify-center pb-6 mx-16 mt-12">
+                    <section className="flex justify-center pb-6 mt-12">
                         <input type="button" id="button-signUp" value="Crear cuenta" onClick={handleCreateUser}
-                        className={`w-1/2 px-5 py-3 border-white border-x-2 border-y-2 rounded-lg bg-white shadow-lg text-${color} text-sm font-semibold font-title 
-                        hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}/>
+                        className={`flex justify-center w-1/3 px-5 py-3 border-white border-x-2 border-y-2 rounded-lg bg-white shadow-lg text-darkGreen text-sm font-semibold 
+                        font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}/>
                     </section>
                 </form>
             </article>
@@ -143,4 +141,4 @@ const SignUp = ({gradient, color}) => {
     )
 }
 
-export default SignUp
+export default SignUpClient

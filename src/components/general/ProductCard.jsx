@@ -1,10 +1,9 @@
 const ProductCard = () => {
     return (
-        <article id="productCard" className="w-1/6 flex flex-col items-center mx-auto mt-16 px-6 bg-white shadow-md rounded-md">
+        <article id="productCard" className="w-2/3 flex flex-col items-center mx-auto mb-36 px-6 bg-white shadow-md rounded-md">
             <img src="https://res.cloudinary.com/dn1k0drir/image/upload/v1679196390/NatAmE/Prueba_jolpgo.png" alt="Imagen de la tarjeta" id="giftCardImage" width="200" 
             height="100" className="-mt-14"/>
             <h2 className="mt-2 text-yellow text-xl font-title font-bold"> Base de maquillaje </h2>
-            <h3 className="mt-2 text-black text-sm font-paragraph font-medium"> Descripción del producto </h3>
 
             <div id="productCard-details" className="flex justify-between items-center mt-6">
                 <div id="details-quantity" className="flex items-center">
@@ -12,7 +11,7 @@ const ProductCard = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 002.25-2.25V6a2.25 2.25 0 00-2.25-2.25H6A2.25 2.25 0 003.75 6v2.25A2.25 2.25 0 006 10.5zm0 9.75h2.25A2.25 2.25 0 0010.5 18v-2.25a2.25 2.25 0 00-2.25-2.25H6a2.25 2.25 0 00-2.25 2.25V18A2.25 2.25 0 006 
                     20.25zm9.75-9.75H18a2.25 2.25 0 002.25-2.25V6A2.25 2.25 0 0018 3.75h-2.25A2.25 2.25 0 0013.5 6v2.25a2.25 2.25 0 002.25 2.25z"/></svg>
                     
-                    <input type="number" name="" id="" placeholder="Cantidad" className="w-2/3 ml-2 px-2 py-2 rounded-md bg-white shadow-md text-black font-medium font-paragraph 
+                    <input type="number" name="" id="" placeholder="Cantidad" className="w-4/6 ml-1 px-2 py-2 rounded-md bg-white shadow-md text-black font-medium font-paragraph 
                     text-xs placeholder-slate-400 border-black border-x-2 border-y-2"/>
                 </div>
 
@@ -20,7 +19,7 @@ const ProductCard = () => {
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-yellow">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 
                     12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    <h3 className="ml-1 text-base text-center text-black font-paragraph"> 1000 </h3>
+                    <h3 className="ml-1 text-sm text-center text-black font-paragraph"> 1000 </h3>
                 </div> 
             </div>  
 

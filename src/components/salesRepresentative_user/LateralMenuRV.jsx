@@ -1,4 +1,22 @@
-const LateralMenu = ({gradient, color}) => {
+import { useNavigate } from "react-router-dom";
+
+const LateralMenuRV = ({setUser, gradient, color}) => {
+    const navigate = useNavigate();
+
+    const handleSeeProducts = () => {
+        navigate("/Home");
+    }
+
+    const handleSignUpClient = () => {
+        navigate("/SignUpClient");
+    }
+
+    const handleLogOut = () => {
+        setUser("");
+        sessionStorage.setItem("user", "");
+        navigate("/");
+    }
+
     return (
         <article className={`fixed w-1/6 top-0 left-0 h-full bg-gradient-to-b ` + gradient}>
             <img src="https://res.cloudinary.com/dn1k0drir/image/upload/v1679111733/NatAmE/Logo_oeniv6.png" alt="Logo de la app" id="appLogo" width="250" height="200"
@@ -8,7 +26,8 @@ const LateralMenu = ({gradient, color}) => {
 
             <section className="flex flex-col justify-around items-center h-2/5 mt-12">
                 <button id="button-signIn" value="Iniciar sesión" className={`flex items-center w-3/5 px-4 py-3 border-white border-x-2 border-y-2 rounded-lg bg-white 
-                shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}> 
+                shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}
+                onClick={handleSeeProducts}> 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 
                     002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 
@@ -28,7 +47,8 @@ const LateralMenu = ({gradient, color}) => {
                 </button>
 
                 <button id="button-signIn" value="Iniciar sesión" className={`flex items-center w-3/5 px-4 py-3 border-white border-x-2 border-y-2 rounded-lg bg-white 
-                shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}> 
+                shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}
+                onClick={handleSignUpClient}> 
                     <svg className="h-6 w-6"  width="24" height="24" viewBox="0 0 24 24" strokeWidth="1.7" stroke="currentColor" fill="none" strokeLinecap="round" 
                     strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="9" cy="7" r="4" />  <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />  
                     <path d="M16 11l2 2l4 -4" /></svg>
@@ -38,7 +58,8 @@ const LateralMenu = ({gradient, color}) => {
 
             <section className="flex flex-col justify-around items-center mt-52">
                 <button id="button-signIn" value="Iniciar sesión" className={`flex items-center w-3/5 px-4 py-3 border-white border-x-2 border-y-2 rounded-lg bg-white 
-                shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}> 
+                shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}
+                onClick={handleLogOut}> 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 
                     2.25 0 002.25-2.25V15M12 9l-3 
@@ -50,4 +71,4 @@ const LateralMenu = ({gradient, color}) => {
     )
 }
 
-export default LateralMenu
+export default LateralMenuRV

@@ -1,15 +1,18 @@
+
 import { useNavigate } from "react-router-dom";
 
 const SelectUser = ({setUser}) => {
     const navigate = useNavigate();
 
     const handleEnterClient = () => {
-        setUser("cliente")
+        setUser("cliente");
+        sessionStorage.setItem("user", "cliente")
         navigate("/LogIn");
     }
 
     const handleEnterSR = () => {
-        setUser("representante")
+        setUser("representante");
+        sessionStorage.setItem("user", "representante");
         navigate("/LogIn");
     }
 
