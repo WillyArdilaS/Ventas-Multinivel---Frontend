@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CartProvider from "./context/CartContext";
-import QualificationRV from "./components/client_user/qualificationRV";
+import QualificationRV from "./components/client_user/QualificationRV";
 import Login from "./components/general/LogIn";
 import SelectUser from "./pages/SelectUser";
 import SignUpC from "./pages/SignUpC";

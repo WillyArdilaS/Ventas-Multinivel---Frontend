@@ -1,72 +1,95 @@
-import React from 'react'
-import './style.css'
-const QualificationRV = () => {
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-  const card_one = document.querySelector(".card-1");
-  const card_two = document.querySelector(".card-2");
-  const btn_select = document.querySelectorAll(".btn-select");
-  const score = document.querySelector(".score");
-
-  var number_select = 1;
-
- 
-  function activeButton(event) {
-    btn_select.forEach((btn) => {
-      btn.classList.remove("active");
-    });
-    if (event.target.classList.contains("btn-select")) {
-      event.target.classList.add("active");
+const QualificationRV = ({gradient, color}) => {
+  const [qualificationRV, setQualificationRV] = useState(0)
+  const arrayQualifications = [1,2,3,4,5]
+  const cardOne = Array.from(document.getElementsByClassName('card-1'));
+  const cardTwo = Array.from(document.getElementsByClassName('card-2')) ;
+  
+  
+  const activeButton=(e)=>{
+    if (e.target.classList.contains("btn-select")) {
+      e.target.classList.add("focus:bg-white","focus:text-black","focus:ring-2","focus:ring-lightBlue");
     }
-    number_select = event.target.textContent;
+    setQualificationRV(Number(e.target.textContent))
   }
 
-
-  function showCardTwo() {
-    card_one.classList.add("hidden");
-    score.textContent = number_select;
-    card_two.classList.remove("hidden");
+  const showQualification=()=>{
+    if(qualificationRV!=0){
+      cardOne[0].classList.add('hidden');
+      cardTwo[0].classList.remove('hidden')
+    } else {
+      alert("No has calificado a tu representante aún")
+    }
+    
   }
+
+  const navigate = useNavigate();
+
+    const goToHome=()=>{
+        navigate("/Home");
+    }
+
   return (
-    <div className="container">
-      <div className="card-1">
-        <div className="image">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
-         </svg>
-        <div className='image2'>
+    <main className="container flex justify-center mx-auto mt-40">
+    <article id="qualification" className={`w-11/12 2xl:w-1/4 xl:w-2/5 lg:w-1/2 md:w-3/5 sm:w-3/4 absolute rounded-t-2xl rounded-b-xl bg-gradient-to-b ` + gradient}>
+      <section className="card-1">
+        <div className=''>
           <img src="https://res.cloudinary.com/dn1k0drir/image/upload/v1679111733/NatAmE/Logo_oeniv6.png" alt="Logo de la app" id="appLogo" width="350" height="250" 
           className="mx-auto mt-8"/>
         </div>
+        
+        <div className="text-white font-title font-extrabold text-2xl p-6 text-center ">
+          ¿Cómo lo hizo tu representante?
         </div>
-        <div className="title">How did we do?</div>
-        <div className="text">
-         
+        <div className="text-white font-subtitle font-normal text-sm p-2 text-center">
+            Puedes darle una calificación al servicio brindado por tu 
+            <br></br>representante de 1 a 5 
         </div>
-        <div className="buttons-numbers">
-          <button className="btn-select active" onClick={activeButton}>1</button>
-          <button className="btn-select" onClick={activeButton}>2</button>
-          <button className="btn-select" onClick={activeButton}>3</button>
-          <button className="btn-select" onClick={activeButton}>4</button>
-          <button className="btn-select" onClick={activeButton}>5</button>
+        <div className="flex justify-around mt-4">
+          {
+            arrayQualifications.map(element=>
+              <button className="btn-select w-12 h-12 rounded-full hover:bg-white hover:text-black hover:cursor-pointer bg-darkBlue text-white font-bold" onClick={activeButton}>{element}</button>
+            )
+          }
+    
         </div>
-        <button className="btn" onClick={showCardTwo}>SUBMIT</button>
-      </div>
+        <section className="flex justify-center pb-8 mx-10 mt-16">
+          <input type="button" id="button-qualification" value="Calificar" onClick={showQualification}
+          className={`w-1/2 px-4 py-2 border-white border-x-2 border-y-2 rounded-lg bg-white shadow-lg text-${color} text-sm font-semibold font-title 
+          hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}/>
+        </section>
+       
+      </section>
+          
+      <section className="card-2 hidden">
+        <div className="">
+          <img src="https://res.cloudinary.com/dn1k0drir/image/upload/v1679111733/NatAmE/Logo_oeniv6.png" alt="Logo de la app" id="appLogo" width="350" height="250" 
+          className="mx-auto mt-8"/>
+        </div>
+        <div className="mx-auto flex text-center items-center justify-center m-0 w-48 h-10 bg-white text-black text-sm font-paragraph font-bold border-2 border-double rounded-md border-lightBlue">
+          Seleccionaste<span className='mx-1 font-bold text-darkBlue'>{qualificationRV}</span>de 5
+        </div>
+        <div className="text-center text-3xl font-bold text-white p-4 font-title ">¡Muchas gracias!</div>
+        <div className="felx text-center text-white font-paragraph text-xs mb-6">
+         Te agradecemos que te hayas tomado la molestia de puntuarnos. 
+         <br></br>Si deseas realizar más compras oprime el botón.
+        </div>
 
-      <div className="card-2 hidden">
-        <div className="image2">
-          <img src="https://res.cloudinary.com/dn1k0drir/image/upload/v1679111733/NatAmE/Logo_oeniv6.png" alt="Logo de la app" id="appLogo" width="350" height="250" 
-          className="mx-auto mt-8"/>
-        </div>
-        <div className="numberSelect">
-          You selected <span className="score"> </span> out of 5
-        </div>
-        <div className="title2">Thank you!</div>
-        <div className="textThanku">
-          We appreciate you taking the time to give a rating. If you ever need
-          more support, don’t hesitate to get in touch!
-        </div>
-      </div>
-    </div>
+        <section className="flex justify-center pb-8 mx-10 mt-16">
+          <input type="button" id="button-qualification" value="Volver a la página principal" onClick={goToHome}
+          className={`w-1/2 px-4 py-2 border-white border-x-2 border-y-2 rounded-lg bg-white shadow-lg text-${color} text-sm font-semibold font-title 
+          hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}/>
+        </section>
+      </section>
+
+      
+  
+
+    
+    </article>
+    </main>
   )
 }
 
