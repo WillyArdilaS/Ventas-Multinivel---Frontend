@@ -5,8 +5,9 @@ const CartContext = React.createContext([]);
 export const useCartContext = () => useContext(CartContext)
 
 const CartProvider = ({children}) =>{
+    const [shoppingMade, setShoppingMade] = useState(false)
     const [cart, setCart] = useState([]);
-    
+
     const isInCart = (id) =>{
         return cart.find(product => product.id == id) ? true : false
     }
@@ -33,13 +34,18 @@ const CartProvider = ({children}) =>{
     }
 
     const confirmPurchase = () => {
-        alert("Compra realizada con éxito")
         setCart([])
+        setShoppingMade(true)
+        alert("Compra realizada con éxito")
     }
 
     const cancelPurchase = () => {
-        alert("Compra cancelada")
         setCart([])
+        alert("Compra cancelada")
+    }
+
+    const processEnd = () => {
+        setShoppingMade(false)
     }
 
     const totalPrice = () => {
@@ -56,7 +62,9 @@ const CartProvider = ({children}) =>{
             removeProduct,
             addProduct,
             total,
-            cart
+            cart, 
+            shoppingMade, 
+            processEnd
         }}>
             {children}
         </CartContext.Provider>

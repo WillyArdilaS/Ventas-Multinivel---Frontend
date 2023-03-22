@@ -2,7 +2,7 @@ import ProductCard from "./ProductCard"
 import productsTemp from "../../data(temp)/productsTemp.json"
 import { useState, useEffect } from "react";
 
-const ProductCatalog = () => {
+const ProductCatalog = ({}) => {
 
   const [products, setProducts] = useState([]);
 

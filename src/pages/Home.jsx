@@ -1,7 +1,5 @@
 import { useState } from "react";
-import LateralMenuClient from "../components/client_user/LateralMenuClient";
-import LateralMenuRV from "../components/salesRepresentative_user/LateralMenuRV";
-import LateralMenuMaster from "../components/salesRepresentative_user/LateralMenuMaster";
+import LateralMenu from "../components/general/LateralMenu";
 import ProductCatalog from "../components/general/ProductCatalog";
 
 const Home = ({setUser, gradient, color}) => {
@@ -48,10 +46,7 @@ const Home = ({setUser, gradient, color}) => {
                     </form>
                 </section>
 
-                {sessionStorage.getItem('user') == "cliente" ? 
-                    <LateralMenuClient setUser={setUser} gradient={gradient} color={color}/> 
-                :   <LateralMenuMaster setUser={setUser} gradient={gradient} color={color}/> }
-                
+                <LateralMenu setUser={setUser} gradient={gradient} color={color}/>
                 <ProductCatalog/>
             </div>    
         </>

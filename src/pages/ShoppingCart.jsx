@@ -1,11 +1,11 @@
-import LateralMenuClient from "../components/client_user/LateralMenuClient";
-import ShoppingCartContainer from "../components/client_user/ShoppingCartContainer";
+import LateralMenu from "../components/general/LateralMenu";
+import ShoppingCartContainer from "../components/general/ShoppingCartContainer";
 
 const ShoppingCart = ({setUser, gradient, color}) => {
   return (
     <>
         <div className="relative h-screen">
-            <LateralMenuClient setUser={setUser} gradient={gradient} color={color}/> 
+            <LateralMenu setUser={setUser} gradient={gradient} color={color}/>  
             <ShoppingCartContainer/>
         </div>
     </>

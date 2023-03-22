@@ -12,6 +12,7 @@ const SignUpRV = () => {
     const [region, setRegion] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");    
     const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
@@ -102,7 +103,7 @@ const SignUpRV = () => {
                     </div>
 
                     <div className="w-4/5 flex justify-between mx-auto">
-                        <div id="form-contractDate" className="flex w-full mb-6 px-3 py-2 rounded-md bg-white 
+                        <div id="form-contractDate" className="flex w-full justify-between mb-6 px-3 py-2 rounded-md bg-white 
                             shadow-md text-slate-400 font-medium font-title placeholder-slate-400">
                             <h1 name="contractDate" id="contractDate" > Fecha de contrato </h1>
                             <label htmlFor="contractDate"></label>
@@ -111,8 +112,6 @@ const SignUpRV = () => {
                         </div>   
                     </div>
                     
-
-
                     <div className="w-4/5 flex justify-between mx-auto">
                         <div id="form-region">
                             <label htmlFor="region"></label>
@@ -138,6 +137,12 @@ const SignUpRV = () => {
                         <label htmlFor="email"></label>
                         <input type="email" name="email" id="email" value={email} placeholder="Correo electrónico" className="w-4/5 mb-6 px-3 py-2 rounded-md bg-white 
                         shadow-md text-black font-medium font-title placeholder-slate-400" onChange={(e) => setEmail(e.target.value)} required/>
+                    </div>
+
+                    <div id="form-username" className="flex justify-center">
+                        <label htmlFor="username"></label>
+                        <input type="text" name="username" id="username" value={username} placeholder="Nombre de usuario" className="w-4/5 mb-6 px-3 py-2 rounded-md bg-white 
+                        shadow-md text-black font-medium font-title placeholder-slate-400" onChange={(e) => setUsername(e.target.value)} required/>
                     </div>
                 
                     <div id="form-password" className="flex justify-center">

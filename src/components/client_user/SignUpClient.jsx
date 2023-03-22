@@ -11,6 +11,7 @@ const SignUpClient = () => {
     const [birthDate, setBirthDate] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
@@ -95,12 +96,12 @@ const SignUpClient = () => {
                     </div>
 
                     <div className="w-4/5 flex justify-between mx-auto">
-                        <div id="form-birthDate" className="flex w-full mb-6 px-3 py-2 rounded-md bg-white shadow-md text-slate-400 font-medium font-title 
+                        <div id="form-birthDate" className="flex w-full justify-between mb-6 px-3 py-2 rounded-md bg-white shadow-md text-slate-400 font-medium font-title 
                         placeholder-slate-400">
                             <h1 name="birthDateLabel" id="birthDateLabel" > Fecha de nacimiento </h1>
 
                             <label htmlFor="birthDate"></label>
-                            <input type="date" name="birthDate" id="birthDate" value={birthDate} className="ml-12 text-black" onChange={(e) => setBirthDate(e.target.value)} required/>
+                            <input type="date" name="birthDate" id="birthDate" value={birthDate} className="text-black" onChange={(e) => setBirthDate(e.target.value)} required/>
                         </div>   
                     </div>
 
@@ -114,6 +115,12 @@ const SignUpClient = () => {
                         <label htmlFor="email"></label>
                         <input type="email" name="email" id="email" placeholder="Correo electrónico" value={email} className="w-4/5 mb-6 px-3 py-2 rounded-md bg-white 
                         shadow-md text-black font-medium font-title placeholder-slate-400" onChange={(e) => setEmail(e.target.value)} required/>
+                    </div>
+
+                    <div id="form-username" className="flex justify-center">
+                        <label htmlFor="username"></label>
+                        <input type="text" name="username" id="username" value={username} placeholder="Nombre de usuario" className="w-4/5 mb-6 px-3 py-2 rounded-md bg-white 
+                        shadow-md text-black font-medium font-title placeholder-slate-400" onChange={(e) => setUsername(e.target.value)} required/>
                     </div>
                 
                     <div id="form-password" className="flex justify-center">
