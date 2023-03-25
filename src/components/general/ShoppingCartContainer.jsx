@@ -1,6 +1,6 @@
 import { useCartContext } from '../../context/CartContext'
 import ShoppingCartItem from './ShoppingCartItem';
-import QualificationRV from '../client_user/QualificationRV';
+import RatingForm from '../client_user/RatingForm';
 
 const ShoppingCartContainer = () => {
    const {cart, total, confirmPurchase, cancelPurchase, shoppingMade} = useCartContext();
@@ -13,7 +13,7 @@ const ShoppingCartContainer = () => {
    if(cart.length !== 0){
    return(
       <article className="fixed w-10/12 h-screen top-0 right-0 px-12 overflow-y-auto">
-         <table className="max-w-screen-2xl overflow-x-auto mt-8 ml-5 mr-5">
+         <table className="w-11/12 mt-14 mx-auto overflow-x-auto">
                <thead>
                   <tr className="bg-yellow text-white text-lg font-title text-center">
                      <th className="w-1/6 min-w-[160px]"></th>
@@ -96,7 +96,7 @@ const ShoppingCartContainer = () => {
   return (
    <>
    <article className="fixed w-10/12 h-screen top-0 right-0 px-12 overflow-y-auto">
-      {shoppingMade ? <QualificationRV/> 
+      {shoppingMade ? <RatingForm/> 
       : (
          <div className={`flex items-center justify-center mt-12 px-10 py-5 bg-yellow text-white text-lg font-medium font-subtitle rounded-md shadow-md`}
          role="alert">

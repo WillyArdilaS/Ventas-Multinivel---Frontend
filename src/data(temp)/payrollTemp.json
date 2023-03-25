@@ -1,0 +1,20 @@
+[
+    {
+        "id":1001,
+        "nombreRepresentante": "William Ardila",
+        "categoria": "Junior",
+        "porcentajeComision": "15",
+        "ventas": "20",
+        "comisionTotal": "220000",
+        "estado": "sube"
+    },
+    {
+        "id":1002,
+        "nombreRepresentante": "Laura Ramírez",
+        "categoria": "Master",
+        "porcentajeComision": "40",
+        "ventas": "35",
+        "comisionTotal": "660000",
+        "estado": "baja"
+    }
+]

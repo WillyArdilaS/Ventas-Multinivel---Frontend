@@ -27,7 +27,6 @@ const SignUpRV = () => {
                 className="mx-auto mt-4"/>
                 
                 <form action="" id="userRegister-form" className="mt-6">
-
                     <div className="w-4/5 flex justify-between mx-auto">
                         <div id="form-idType">
                             <label htmlFor="idType"></label>
@@ -87,7 +86,6 @@ const SignUpRV = () => {
                         </div>
                     </div>
 
-
                     <div className="w-4/5 flex justify-between mx-auto">
                         <div id="form-city">
                             <label htmlFor="city"></label>
@@ -103,9 +101,10 @@ const SignUpRV = () => {
                     </div>
 
                     <div className="w-4/5 flex justify-between mx-auto">
-                        <div id="form-contractDate" className="flex w-full justify-between mb-6 px-3 py-2 rounded-md bg-white 
-                            shadow-md text-slate-400 font-medium font-title placeholder-slate-400">
-                            <h1 name="contractDate" id="contractDate" > Fecha de contrato </h1>
+                        <div id="form-contractDate" className="flex w-full justify-between mb-6 px-3 py-2 rounded-md bg-white shadow-md text-slate-400 font-medium font-title 
+                        placeholder-slate-400">
+                            <h1> Fecha de contrato </h1>
+
                             <label htmlFor="contractDate"></label>
                             <input type="date" name="contractDate" id="contractDate" value={contractDate} className="ml-12 text-black" 
                             onChange={(e) => setContractDate(e.target.value)} required/>
@@ -121,7 +120,6 @@ const SignUpRV = () => {
                                 <option value="regionA">Región A</option>
                                 <option value="regionB">Región B</option>
                             </select>
-                            
                         </div>
 
                         <div id="form-phoneNumber">

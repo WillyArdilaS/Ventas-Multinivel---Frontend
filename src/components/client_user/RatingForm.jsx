@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCartContext } from '../../context/CartContext';
 
-const QualificationRV = () => {
+const RatingForm = () => {
   const [qualificationRV, setQualificationRV] = useState(0)
   const arrayQualifications = [1,2,3,4,5]
   const cardOne = Array.from(document.getElementsByClassName('card-1'));
@@ -52,7 +52,7 @@ const QualificationRV = () => {
           <div className="flex justify-around mt-8 px-6">
             {
               arrayQualifications.map(element=>
-                <button key={element} className="btn-select w-12 h-12 bg-darkBlue text-white font-bold rounded-full hover:bg-white hover:text-black hover:cursor-pointer" 
+                <button key={element} className="btn-select w-12 h-12 bg-darkBlue text-white font-bold rounded-full hover:bg-white hover:text-darkBlue hover:cursor-pointer" 
                 onClick={activeButton}>{element}</button>
               )
             }
@@ -94,4 +94,4 @@ const QualificationRV = () => {
   )
 }
 
-export default QualificationRV
+export default RatingForm

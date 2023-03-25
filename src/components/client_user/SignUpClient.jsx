@@ -98,8 +98,8 @@ const SignUpClient = () => {
                     <div className="w-4/5 flex justify-between mx-auto">
                         <div id="form-birthDate" className="flex w-full justify-between mb-6 px-3 py-2 rounded-md bg-white shadow-md text-slate-400 font-medium font-title 
                         placeholder-slate-400">
-                            <h1 name="birthDateLabel" id="birthDateLabel" > Fecha de nacimiento </h1>
-
+                            <h1> Fecha de nacimiento </h1>
+                            
                             <label htmlFor="birthDate"></label>
                             <input type="date" name="birthDate" id="birthDate" value={birthDate} className="text-black" onChange={(e) => setBirthDate(e.target.value)} required/>
                         </div>   
