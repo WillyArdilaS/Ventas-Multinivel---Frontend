@@ -6,6 +6,8 @@ import SignUpC from "./pages/SignUpC";
 import SignUpR from "./pages/SignUpR";
 import ShoppingCart from "./pages/ShoppingCart";
 import Home from "./pages/Home";
+import Statistics from "./pages/Statistics";
+
 
 function App() {
   const [user, setUser] = useState("");
@@ -41,6 +43,8 @@ function App() {
           <Route path="/SignUpClient" element={<SignUpC setUser={setUser} gradient={gradient} color={color}/>} />
           <Route path="/SignUpRV" element={<SignUpR setUser={setUser} gradient={gradient} color={color}/>} />
           <Route path="/ShoppingCart" element={<ShoppingCart setUser={setUser} gradient={gradient} color={color} />} />
+          <Route path="/Statistics" element={<Statistics setUser={setUser} gradient={gradient} color={color} />} />
+          
         </Routes>
       </CartProvider>
     </BrowserRouter>
