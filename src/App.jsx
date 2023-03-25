@@ -9,6 +9,8 @@ import ShoppingCart from "./pages/ShoppingCart";
 import RatingsRV from "./pages/RatingsRV";
 import Payroll from "./pages/Payroll";
 import ShowRV from "./pages/ShowRV";
+import ChangeRV from "./pages/ChangeRV";
+import Statistics from "./pages/Statistics";
 
 function App() {
   const [user, setUser] = useState("");
@@ -47,6 +49,8 @@ function App() {
           <Route path="/RatingsRV" element={<RatingsRV setUser={setUser} gradient={gradient} color={color} />} />
           <Route path="/Payroll" element={<Payroll setUser={setUser} gradient={gradient} color={color} />} />
           <Route path="/ShowRV" element={<ShowRV setUser={setUser} gradient={gradient} color={color}/>} />
+          <Route path="/ChangeRV" element={<ChangeRV setUser={setUser} gradient={gradient} color={color}/>} />
+          <Route path="/Statistics" element={<Statistics setUser={setUser} gradient={gradient} color={color} />} />
         </Routes>
       </CartProvider>
     </BrowserRouter>

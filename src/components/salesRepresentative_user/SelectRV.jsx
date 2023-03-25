@@ -1,7 +1,15 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 const InfoCard = () => {
     const [saleRepresentative, setSaleRepresentative] = useState("");
+
+    const navigate = useNavigate();
+
+    const goToRVInfo = () => {
+        navigate("/ShowRV");
+    }
 
     return (
         <main className="container flex justify-center mx-auto mt-20">
@@ -49,7 +57,7 @@ const InfoCard = () => {
                     className={`flex justify-center w-1/3 px-5 py-3 border-white border-x-2 border-y-2 rounded-lg bg-white shadow-lg text-darkBlue text-sm font-semibold 
                     font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}/>
                     
-                    <input type="button" id="button-changeRV" value="Cancelar"
+                    <input type="button" id="button-changeRV" value="Cancelar" onClick={goToRVInfo}
                     className={`flex justify-center w-1/3 px-5 py-3 border-white border-x-2 border-y-2 border-dashed rounded-lg bg-darkBlue shadow-lg text-white text-sm 
                     font-semibold font-title hover:cursor-pointer hover:bg-white hover:text-darkBlue transition-colors`}/>
                 </section>
