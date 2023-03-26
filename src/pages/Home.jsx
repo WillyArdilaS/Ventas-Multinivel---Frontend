@@ -1,11 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LateralMenu from "../components/general/LateralMenu";
 import ProductCatalog from "../components/general/ProductCatalog";
+import axios from "axios";
 
 const Home = ({setUser, gradient, color}) => {
     const [region, setRegion] = useState("");
+    const [regionList, setRegionList] = useState([])
     const [categorie, setCategorie] = useState("");
+    const [categorieList, setCategorieList] = useState([]);
     const [subcategorie, setSubcategorie] = useState("");
+    const [subcategorieList, setSubcategorieList] = useState([]);
+
+    useEffect(() => {
+        axios.get('http://localhost:8080/regiones')
+        .then((res) => {
+            res.data.map(item => {
+                setRegionList(element => [...element, item.nombreRegion]);
+            })
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }, []);
 
     return (
         <>
@@ -18,8 +34,11 @@ const Home = ({setUser, gradient, color}) => {
                                 <select name="region" id="region" value={region} className="w-56 px-3 py-2 rounded-md bg-white shadow-md text-black 
                                 font-medium font-title placeholder-slate-400" onChange={(e) => setRegion(e.target.value)} required>
                                     <option value="" disabled hidden> Región </option>
-                                    <option value="regionA"> Región A </option>
-                                    <option value="regionB"> Región B </option>
+                                    {
+                                        regionList.map((region, index) => {
+                                            return(<option key={index} value={region}> {region} </option>);
+                                        })
+                                    }
                                 </select> 
                             </div>
 
