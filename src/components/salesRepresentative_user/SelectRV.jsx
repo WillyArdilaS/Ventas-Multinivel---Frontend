@@ -13,7 +13,7 @@ const InfoCard = () => {
 
     return (
         <main className="container flex justify-center mx-auto mt-20">
-            <article id="infoCard" className="w-1/3 py-8 absolute rounded-2xl bg-gradient-to-b from-lightBlue to-darkBlue">    
+            <article id="infoCard" className="w-2/5 2xl:w-1/3 py-8 absolute rounded-2xl bg-gradient-to-b from-lightBlue to-darkBlue">    
                 <div id="form-selectRV" className="w-4/5 flex justify-between mx-auto">
                     <label htmlFor="selectRV"></label>
                     <select name="selectRV" id="selectRV" value={saleRepresentative} className="w-full mb-6 px-3 py-2 rounded-md bg-white shadow-md text-black 

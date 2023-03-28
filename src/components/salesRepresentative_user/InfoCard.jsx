@@ -9,7 +9,7 @@ const InfoCard = () => {
 
     return (
         <main className="container flex justify-center mx-auto mt-28">
-            <article id="infoCard" className="w-1/3 py-8 absolute rounded-2xl bg-gradient-to-b from-lightBlue to-darkBlue">     
+            <article id="infoCard" className="w-2/5 2xl:w-1/3 py-8 absolute rounded-2xl bg-gradient-to-b from-lightBlue to-darkBlue">     
                 <div className="w-4/5 flex justify-between mx-auto">
                     <div id="infoCard-name" className="flex w-full justify-between mb-6 px-4 py-2 rounded-md bg-white shadow-md font-medium font-title">
                         <h1 className="text-slate-400"> Nombre Completo </h1>
