@@ -48,7 +48,7 @@ const LateralMenu = ({setUser, gradient, color}) => {
             <h1 className="text-center text-white text-base 2xl:text-lg font-medium font-subtitle"> Laura Ramírez - Master </h1> {/*Cambiar el nombre y rol segun el resultado de la BD */}
 
             <section className="flex flex-col justify-around items-center h-3/4 mt-5">
-                <button id="button-signIn" value="products" className={`flex items-center w:10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 
+                <button id="button-signIn" value="products" className={`flex items-center w-10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 
                 rounded-lg bg-white shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}
                 onClick={goToCatalog}> 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -60,7 +60,7 @@ const LateralMenu = ({setUser, gradient, color}) => {
                     <span className="ml-2"> Productos </span> 
                 </button>
 
-                <button id="button-shoppingCart" value="shoppingCart" className={`flex items-center w:10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 
+                <button id="button-shoppingCart" value="shoppingCart" className={`flex items-center w-10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 
                 rounded-lg bg-white shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`} 
                 onClick={goToCart} > 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -71,7 +71,7 @@ const LateralMenu = ({setUser, gradient, color}) => {
                     <span className="ml-2"> Ver carrito </span> 
                 </button>
 
-                <button id="button-infoRV" value="infoRV" className={`flex items-center w:10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 rounded-lg 
+                <button id="button-infoRV" value="infoRV" className={`flex items-center w-10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 rounded-lg 
                 bg-white shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}
                 onClick={goToShowRV}> 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -86,7 +86,7 @@ const LateralMenu = ({setUser, gradient, color}) => {
                     <span className="ml-2"> Ver representate </span> 
                 </button>   
 
-                <button id="button-qualificationsRV" value="qualificationsRV" className={`flex items-center w:10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 
+                <button id="button-qualificationsRV" value="qualificationsRV" className={`flex items-center w-10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 
                 rounded-lg bg-white shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}
                 onClick={goToRatingsRV}> 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -96,7 +96,7 @@ const LateralMenu = ({setUser, gradient, color}) => {
                     <span className="ml-2"> Calificaciones - RV </span> 
                 </button>
 
-                <button id="button-statistics" value="statistics" className={`flex items-center w:10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 
+                <button id="button-statistics" value="statistics" className={`flex items-center w-10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 
                 rounded-lg bg-white shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}
                 onClick={goToStatistics}> 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -105,7 +105,7 @@ const LateralMenu = ({setUser, gradient, color}) => {
                     <span className="ml-2"> Estadísticas </span> 
                 </button>
 
-                <button id="button-payroll" value="payroll" className={`flex items-center w:10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 rounded-lg
+                <button id="button-payroll" value="payroll" className={`flex items-center w-10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 rounded-lg
                 bg-white shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}
                 onClick={goToPayroll}> 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -116,7 +116,7 @@ const LateralMenu = ({setUser, gradient, color}) => {
                     <span className="ml-2"> Nómina </span> 
                 </button>
 
-                <button id="button-signUpClient" value="signUpClient" className={`flex items-center w:10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 
+                <button id="button-signUpClient" value="signUpClient" className={`flex items-center w-10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 
                 rounded-lg bg-white shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}
                 onClick={goToSignUpClient}> 
                     <svg className="h-6 w-6"  width="24" height="24" viewBox="0 0 24 24" strokeWidth="1.7" stroke="currentColor" fill="none" strokeLinecap="round" 
@@ -125,7 +125,7 @@ const LateralMenu = ({setUser, gradient, color}) => {
                     <span className="ml-2"> Registrar cliente </span> 
                 </button>
 
-                <button id="button-signUpRV" value="signUpRV" className={`flex items-center w:10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 rounded-lg
+                <button id="button-signUpRV" value="signUpRV" className={`flex items-center w-10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 rounded-lg
                 bg-white shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}
                 onClick={goToSignUpRV}> 
                     <svg className="h-6 w-6"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -135,7 +135,7 @@ const LateralMenu = ({setUser, gradient, color}) => {
                     <span className="ml-2"> Registrar RV </span> 
                 </button>
 
-                <button id="button-logOut" value="logOut" className={`flex items-center w:10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 rounded-lg 
+                <button id="button-logOut" value="logOut" className={`flex items-center w-10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 rounded-lg 
                 bg-white shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}
                 onClick={handleLogOut}> 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
