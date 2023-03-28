@@ -18,12 +18,10 @@ const RatingForm = () => {
   }
 
   const showQualification=()=>{
-    if(qualificationRV!=0){
+    if(qualificationRV>=0){
       cardOne[0].classList.add('hidden');
       cardTwo[0].classList.remove('hidden')
-    } else {
-      alert("No has calificado a tu representante aún")
-    }
+    } 
   }
 
   const navigate = useNavigate();
@@ -47,7 +45,7 @@ const RatingForm = () => {
             ¿Cómo lo hizo tu representante?
           </div>
           <div className="text-white font-subtitle font-normal text-sm mx-8 text-center">
-              Puedes darle una calificación al servicio brindado por tu representante de 1 a 5 
+              Puedes darle una calificación al servicio brindado por tu representante de 0 a 5 
           </div>
           <div className="flex justify-around mt-8 px-6">
             {

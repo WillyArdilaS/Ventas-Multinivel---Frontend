@@ -30,6 +30,9 @@ const PayrollItem = ({ payroll }) => {
                 {payroll.ventas}
             </td>
             <td className="py-3">
+                {payroll.calificaciones}
+            </td>
+            <td className="py-3">
                 ${payroll.comisionTotal}
             </td>
             <td className="flex justify-center py-3">

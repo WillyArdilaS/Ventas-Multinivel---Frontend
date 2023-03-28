@@ -5,6 +5,7 @@
         "categoria": "Junior",
         "porcentajeComision": "15",
         "ventas": "20",
+        "calificaciones": "4",
         "comisionTotal": "220000",
         "estado": "sube"
     },
@@ -14,6 +15,7 @@
         "categoria": "Master",
         "porcentajeComision": "40",
         "ventas": "35",
+        "calificaciones": "4",
         "comisionTotal": "660000",
         "estado": "baja"
     }

@@ -32,6 +32,10 @@ const PayrollContainer = () => {
                      </th>
 
                      <th className="w-1/6 min-w-[160px] px-3 py-4">
+                        Prom. Calificaciones
+                     </th>
+
+                     <th className="w-1/6 min-w-[160px] px-3 py-4">
                         Comisión total
                      </th>
 

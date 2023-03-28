@@ -6,7 +6,6 @@ const ShoppingCartContainer = () => {
    const {cart, total, confirmPurchase, cancelPurchase, shoppingMade} = useCartContext();
 
    const buyProducts = () => {
-      console.log("Comprado")
       confirmPurchase();
    }
 
