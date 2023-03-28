@@ -21,7 +21,7 @@ const SignUpClient = () => {
 
     return (
         <main className="container flex justify-center mx-auto mt-12">
-            <article id="userRegister" className="w-1/3 absolute rounded-2xl bg-gradient-to-b from-lightGreen to-darkGreen">
+            <article id="userRegister" className="w-2/5 2xl:w-1/3 absolute rounded-2xl bg-gradient-to-b from-lightGreen to-darkGreen">
                 <img src="https://res.cloudinary.com/dn1k0drir/image/upload/v1679111733/NatAmE/Logo_oeniv6.png" alt="Logo de la app" id="appLogo" width="350" height="250" 
                 className="mx-auto mt-4"/>
                 

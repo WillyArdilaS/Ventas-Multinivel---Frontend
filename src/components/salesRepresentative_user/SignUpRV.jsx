@@ -6,7 +6,6 @@ const SignUpRV = () => {
     const [name, setName] = useState("");
     const [lastName, setLastName] = useState("");
     const [typePosition, setTypePosition] = useState("");
-    const [city, setCity] = useState("");
     const [addres, setAddress] = useState("");
     const [contractDate, setContractDate] = useState("");
     const [region, setRegion] = useState("");
@@ -22,7 +21,7 @@ const SignUpRV = () => {
 
     return (
         <main className="container flex justify-center mx-auto mt-12">
-            <article id="userRegister" className="w-1/3 absolute rounded-2xl bg-gradient-to-b from-lightBlue to-darkBlue">
+            <article id="userRegister" className="w-2/5 2xl:w-1/3 absolute rounded-2xl bg-gradient-to-b from-lightBlue to-darkBlue">
                 <img src="https://res.cloudinary.com/dn1k0drir/image/upload/v1679111733/NatAmE/Logo_oeniv6.png" alt="Logo de la app" id="appLogo" width="350" height="250" 
                 className="mx-auto mt-4"/>
                 
@@ -86,18 +85,10 @@ const SignUpRV = () => {
                         </div>
                     </div>
 
-                    <div className="w-4/5 flex justify-between mx-auto">
-                        <div id="form-city">
-                            <label htmlFor="city"></label>
-                            <input type="text" name="city" id="city" value={city} placeholder="Ciudad" className="w-32 lg:w-44 sm:w-44 mb-6 px-3 py-2 rounded-md bg-white 
-                            shadow-md text-black font-medium font-title placeholder-slate-400" onChange={(e) => setCity(e.target.value)} required/>
-                        </div>
-
-                        <div id="form-address">
-                            <label htmlFor="address"></label>
-                            <input type="text" name="address" id="address" value={addres} placeholder="Dirección" className="w-32 lg:w-44 sm:w-44 mb-6 px-3 py-2 rounded-md 
-                            bg-white shadow-md text-black font-medium font-title placeholder-slate-400" onChange={(e) => setAddress(e.target.value)} required/>
-                        </div>
+                    <div id="form-address" className="flex justify-center">
+                        <label htmlFor="address"></label>
+                        <input type="text" name="address" id="address" value={addres} placeholder="Dirección" className="w-4/5 mb-6 px-3 py-2 rounded-md 
+                        bg-white shadow-md text-black font-medium font-title placeholder-slate-400" onChange={(e) => setAddress(e.target.value)} required/>
                     </div>
 
                     <div className="w-4/5 flex justify-between mx-auto">

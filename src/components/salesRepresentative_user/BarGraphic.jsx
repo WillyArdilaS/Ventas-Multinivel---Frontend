@@ -1,9 +1,30 @@
 import {Chart as ChartJS,CategoryScale,LinearScale,BarElement,Title,Tooltip,Legend,} from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 ChartJS.register(CategoryScale,LinearScale,BarElement,Title,Tooltip,Legend);
+import { useEffect ,useState} from 'react';
+import axios from "axios";
+
 
   
 const BarGraphic = ({period}) => {
+  const [labels, setLabels] = useState([]);
+  const [sales, setSales] = useState([]);
+  useEffect(() => {
+    axios.get(`http://localhost:8080/estadisticas/topRepresentantes/${period}`)
+      .then((res) => {
+        console.log(res.data)
+        res.data.map(item => {
+          setLabels(element => [...element, item['Representante De Ventas']])
+          setSales(element => [...element, Number(item['Producto Vendido'])])
+        })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    
+
+  }, [])
+  
   const options = {
     responsive: true,
     plugins: {
@@ -14,12 +35,12 @@ const BarGraphic = ({period}) => {
     },
   };
   
-  const labels = ['R1', 'R2', 'R3', 'R4', 'R5', 'R6', 'R7'];
+  
   const data = {
     datasets: [
       {
         label: '# de ventas',
-        data: [10,20,30,66,67,68,90],
+        data: sales,
         backgroundColor: 'darkBlue',
       },
     ],

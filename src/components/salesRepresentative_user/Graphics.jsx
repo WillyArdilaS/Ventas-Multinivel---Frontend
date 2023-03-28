@@ -8,6 +8,7 @@ const Graphics = () => {
   const [period, setPeriod] = useState("");
   const [periodList, setPeriodList] = useState([]);
 
+  
   useEffect(() => {
     axios.get('http://localhost:8080/periodos')
       .then((res) => {
@@ -48,8 +49,8 @@ const Graphics = () => {
             font-medium font-title placeholder-slate-400" onChange={(e) => setTypeStatistic(e.target.value)} required>
             <option value="" disabled hidden> Tipo estadística </option>
             <option value="representantes"> Top n representantes </option>
-            <option value="regionales">Regionales con más ventas</option>
-            <option value="productos">Producto más vendido</option>
+            <option value="topRegiones">Regionales con más ventas</option>
+            <option value="topProductos">Producto más vendido</option>
           </select>
         </div>
 
@@ -60,7 +61,7 @@ const Graphics = () => {
             <option value="" disabled hidden> Periodo </option>
             {
               periodList.map((period) => {
-                return (<option key={period} value="period">{period}</option>)
+                return (<option key={period} value={period}>{period}</option>)
               })
             }
 
