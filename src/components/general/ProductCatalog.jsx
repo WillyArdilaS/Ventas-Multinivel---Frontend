@@ -12,7 +12,7 @@ const ProductCatalog = ({}) => {
 
   return (
     <article className="fixed w-10/12 h-screen top-24 right-0 px-12 overflow-y-auto">
-        <section className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 h-fit mt-24 pb-6">
+        <section className="grid grid-cols-3  2xl:grid-cols-4 h-fit mt-24 pb-6">
             {
                 products.map(product=>(
                     <ProductCard key={product.id} info={product} />

@@ -15,13 +15,24 @@ const Home = ({setUser, gradient, color}) => {
         axios.get('http://localhost:8080/regiones')
         .then((res) => {
             res.data.map(item => {
-                setRegionList(element => [...element, item.nombreRegion]);
+                setRegionList(element => [...element, [item.idRegion,item.nombreRegion]]);
             })
         })
         .catch((err) => {
             console.log(err)
         })
+
+    
     }, []);
+
+    useEffect(() => {
+      console.log('hola')
+    
+      return () => {
+        
+      }
+    }, [region])
+    
 
     return (
         <>
@@ -36,7 +47,7 @@ const Home = ({setUser, gradient, color}) => {
                                     <option value="" disabled hidden> Región </option>
                                     {
                                         regionList.map((region, index) => {
-                                            return(<option key={index} value={region}> {region} </option>);
+                                            return(<option key={index} id={region[0]} value={region[1]}> {region[1]} </option>);
                                         })
                                     }
                                 </select> 

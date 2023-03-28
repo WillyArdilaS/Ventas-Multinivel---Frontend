@@ -43,13 +43,13 @@ const LateralMenu = ({setUser, gradient, color}) => {
 
     return (
         <article className={`fixed w-1/6 top-0 left-0 h-full bg-gradient-to-b ` + gradient}>
-            <img src="https://res.cloudinary.com/dn1k0drir/image/upload/v1679111733/NatAmE/Logo_oeniv6.png" alt="Logo de la app" id="appLogo" width="250" height="200" 
-            className="mx-auto"/>
+            <img src="https://res.cloudinary.com/dn1k0drir/image/upload/v1679111733/NatAmE/Logo_oeniv6.png" alt="Logo de la app" id="appLogo" className=' w-36 2xl:w-56  mx-auto' ></img>
+           
 
-            <h1 className="text-center text-white text-lg font-medium font-subtitle"> Laura Ramírez - Master </h1> {/*Cambiar el nombre y rol segun el resultado de la BD */}
+            <h1 className="text-center text-white text-base 2xl:text-lg font-medium font-subtitle"> Laura Ramírez - Master </h1> {/*Cambiar el nombre y rol segun el resultado de la BD */}
 
-            <section className="flex flex-col justify-around items-center h-3/4 mt-3">
-                <button id="button-signIn" value="products" className={`flex items-center w-3/5 px-4 py-3 border-white border-x-2 border-y-2 rounded-lg bg-white 
+            <section className="flex flex-col justify-around items-center h-3/4 mt-5">
+                <button id="button-signIn" value="products" className={`flex items-center  w-10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 rounded-lg bg-white 
                 shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}
                 onClick={goToCatalog}> 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -61,7 +61,7 @@ const LateralMenu = ({setUser, gradient, color}) => {
                     <span className="ml-2"> Productos </span> 
                 </button>
 
-                <button id="button-shoppingCart" value="shoppingCart" className={`flex items-center w-3/5 px-4 py-3 border-white border-x-2 border-y-2 rounded-lg bg-white 
+                <button id="button-shoppingCart" value="shoppingCart" className={`flex items-center w-10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 rounded-lg bg-white 
                 shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`} onClick={goToCart} > 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 
@@ -71,7 +71,7 @@ const LateralMenu = ({setUser, gradient, color}) => {
                     <span className="ml-2"> Ver carrito </span> 
                 </button>
 
-                <button id="button-signIn" value="infoRV" className={`flex items-center w-3/5 px-4 py-3 border-white border-x-2 border-y-2 rounded-lg bg-white 
+                <button id="button-signIn" value="infoRV" className={`flex items-center w-10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 rounded-lg bg-white 
                 shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}
                 onClick={goToShowRV}> 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -86,7 +86,7 @@ const LateralMenu = ({setUser, gradient, color}) => {
                     <span className="ml-2"> Ver representate </span> 
                 </button>   
 
-                <button id="button-signIn" value="qualificationsRV" className={`flex items-center w-3/5 px-4 py-3 border-white border-x-2 border-y-2 rounded-lg bg-white 
+                <button id="button-signIn" value="qualificationsRV" className={`flex items-center w-10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 rounded-lg bg-white 
                 shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}
                 onClick={goToRatingsRV}> 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -96,7 +96,7 @@ const LateralMenu = ({setUser, gradient, color}) => {
                     <span className="ml-2"> Calificaciones - RV </span> 
                 </button>
 
-                <button id="button-signIn" value="statistics" className={`flex items-center w-3/5 px-4 py-3 border-white border-x-2 border-y-2 rounded-lg bg-white 
+                <button id="button-signIn" value="statistics" className={`flex items-center w-10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 rounded-lg bg-white 
                 shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}
                 onClick={goToStatistics}> 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -105,7 +105,7 @@ const LateralMenu = ({setUser, gradient, color}) => {
                     <span className="ml-2"> Estadísticas </span> 
                 </button>
 
-                <button id="button-signIn" value="payroll" className={`flex items-center w-3/5 px-4 py-3 border-white border-x-2 border-y-2 rounded-lg bg-white 
+                <button id="button-signIn" value="payroll" className={`flex items-center w-10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 rounded-lg bg-white 
                 shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}
                 onClick={goToPayroll}> 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -116,7 +116,7 @@ const LateralMenu = ({setUser, gradient, color}) => {
                     <span className="ml-2"> Nómina </span> 
                 </button>
 
-                <button id="button-signIn" value="signUpClient" className={`flex items-center w-3/5 px-4 py-3 border-white border-x-2 border-y-2 rounded-lg bg-white 
+                <button id="button-signIn" value="signUpClient" className={`flex items-center w-10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 rounded-lg bg-white 
                 shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}
                 onClick={goToSignUpClient}> 
                     <svg className="h-6 w-6"  width="24" height="24" viewBox="0 0 24 24" strokeWidth="1.7" stroke="currentColor" fill="none" strokeLinecap="round" 
@@ -125,7 +125,7 @@ const LateralMenu = ({setUser, gradient, color}) => {
                     <span className="ml-2"> Registrar cliente </span> 
                 </button>
 
-                <button id="button-signIn" value="signUpRV" className={`flex items-center w-3/5 px-4 py-3 border-white border-x-2 border-y-2 rounded-lg bg-white 
+                <button id="button-signIn" value="signUpRV" className={`flex items-center w-10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 rounded-lg bg-white 
                 shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}
                 onClick={goToSignUpRV}> 
                     <svg className="h-6 w-6"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -135,7 +135,7 @@ const LateralMenu = ({setUser, gradient, color}) => {
                     <span className="ml-2"> Registrar RV </span> 
                 </button>
 
-                <button id="button-signIn" value="logOut" className={`flex items-center w-3/5 px-4 py-3 border-white border-x-2 border-y-2 rounded-lg bg-white 
+                <button id="button-signIn" value="logOut" className={`flex items-center w-10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 rounded-lg bg-white 
                 shadow-lg text-${color} text-sm font-semibold font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`}
                 onClick={handleLogOut}> 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
