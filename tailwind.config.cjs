@@ -12,7 +12,8 @@ module.exports = {
         'yellow': '#FFAC03',
         'gray': '#e6e6e6',
         'white': '#FBFDFC',
-        'black': '#111B21'
+        'black': '#111B21',
+        'purple':'#7A5197'
       },
       fontFamily: {
         'title': ['Libre Franklin','sans-serif'],

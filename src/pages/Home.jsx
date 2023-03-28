@@ -8,7 +8,8 @@ const Home = ({setUser, gradient, color}) => {
     const [regionName, setRegionName] = useState("");
     const [regionID, setRegionID] = useState(0);
     const [categorieList, setCategorieList] = useState([]);
-    const [categorie, setCategorie] = useState("");
+    const [categorieName, setCategorieName] = useState("");
+    const [categorieID, setCategorieID] = useState(0)
     const [subcategorieList, setSubcategorieList] = useState([]);
     const [subcategorie, setSubcategorie] = useState("");
 
@@ -42,11 +43,37 @@ const Home = ({setUser, gradient, color}) => {
         }
     }, [regionName]);
 
+    useEffect(() => {
+        if(categorieName.length > 0) {
+            setSubcategorieList([]);
+
+            axios.get(`http://localhost:8080/subcategorias/${categorieID}`)
+            .then((res) => {
+                res.data.map(item => {
+                    setSubcategorieList(element => [...element, item]);
+                })
+            })
+            .catch((err) => {
+                console.log(err)
+            });
+        }
+    }, [categorieName]);
+
     const selectRegion = (e) => {
         setRegionName(e);
         regionList.map(region => {
             if(region.nombreRegion == e) {
                 setRegionID(region.idRegion);
+            }
+        })
+    }
+
+    const selectCategorie = (e) => {
+        setCategorieName(e);
+        categorieList.map(categorie => {
+            if(categorie.nombreCategoria == e) {
+                setCategorieID(categorie.id);
+                
             }
         })
     }
@@ -72,12 +99,11 @@ const Home = ({setUser, gradient, color}) => {
 
                             <div id="form-categorie">
                                 <label htmlFor="categorie"></label>
-                                <select name="categorie" id="categorie" value={categorie} className="w-56 px-3 py-2 rounded-md bg-white shadow-md 
-                                text-black font-medium font-title" onChange={(e) => setCategorie(e.target.value)} required>
+                                <select name="categorie" id="categorie" value={categorieName} className="w-56 px-3 py-2 rounded-md bg-white shadow-md 
+                                text-black font-medium font-title" onChange={(e) => selectCategorie(e.target.value)} required>
                                     <option value="" disabled hidden> Categoría </option>
                                     {
                                         categorieList.map((categorie, index) => {
-                                            console.log(categorie.nombreCategoria)
                                             return(<option key={index} value={categorie.nombreCategoria}> {categorie.nombreCategoria} </option>);
                                         })
                                     }
@@ -89,8 +115,11 @@ const Home = ({setUser, gradient, color}) => {
                                 <select name="subcategorie" id="subcategorie" value={subcategorie} className="w-56 px-3 py-2 rounded-md bg-white shadow-md 
                                 text-black font-medium font-title" onChange={(e) => setSubcategorie(e.target.value)} required>
                                     <option value="" disabled hidden> Subcategoría </option>
-                                    <option value="subcategorie1"> Subcategoría 1 </option>  
-                                    <option value="subcategorie2"> Subcategoría 2 </option>  
+                                    {
+                                        subcategorieList.map((subcategorie, index) => {
+                                            return(<option key={index} value={subcategorie.nNombre}> {subcategorie.nNombre} </option>);
+                                        })
+                                    }
                                 </select> 
                             </div>
                         </div>
