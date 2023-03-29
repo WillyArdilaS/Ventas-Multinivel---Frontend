@@ -1,12 +1,22 @@
 import { useEffect, useState } from 'react';
 import RatingsRVItem from './RatingsRVItem';
-import ratingsRVTemp from '../../data(temp)/ratingsRVTemp.json';
+import axios from 'axios';
 
 const RatingsRVContainer = () => {
    const [ratings, setRatings] = useState([]);
 
    useEffect(()=>{
-      setRatings(ratingsRVTemp);
+      setRatings([]);
+      
+      axios.get(`http://localhost:8080/calificaciones/CC/530551232`)
+      .then(res => {
+         res.data.map(item => {
+            setRatings(element => [...element, item]);
+         })
+      })
+      .catch(err => {
+         console.log(err)
+      })
    },[]);
 
    if(ratings.length !== 0){
@@ -31,7 +41,7 @@ const RatingsRVContainer = () => {
 
                <tbody>
                   {
-                     ratings.map(rating => <RatingsRVItem key={rating.id} rating={rating} />)
+                     ratings.map((rating, index) => <RatingsRVItem key={index} rating={rating} />)
                   }
                </tbody>
             </table>

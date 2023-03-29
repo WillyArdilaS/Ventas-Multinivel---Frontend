@@ -1,12 +1,21 @@
 import { useEffect, useState } from 'react';
 import PayrollItem from './PayrollItem';
-import payrollTemp from '../../data(temp)/payrollTemp.json';
+import axios from 'axios';
 
 const PayrollContainer = () => {
    const [payrolls, setPayrolls] = useState([]);
 
    useEffect(()=>{
-      setPayrolls(payrollTemp);
+
+      axios.get('http://localhost:8080/nomina')
+      .then(res => {
+         res.data.map(item => {
+            setPayrolls(element => [...element, item]);
+         })
+      })
+      .catch(err => {
+         console.log(err)
+      })
    },[]);
 
    if(payrolls.length !== 0){
@@ -39,7 +48,7 @@ const PayrollContainer = () => {
                         Comisión total
                      </th>
 
-                     <th className="w-1/6 px-3 py-4">
+                     <th className="w-1/6 px-6 py-4">
                         Estado
                      </th>
                   </tr>
@@ -47,7 +56,7 @@ const PayrollContainer = () => {
 
                <tbody>
                   {
-                     payrolls.map(payroll => <PayrollItem key={payroll.id} payroll={payroll} />)
+                     payrolls.map((payroll, index) => <PayrollItem key={index} payroll={payroll} />)
                   }
                </tbody>
             </table>
