@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from 'axios';
 
 const SignUpRV = () => {
@@ -11,6 +11,7 @@ const SignUpRV = () => {
     const [typePosition, setTypePosition] = useState("");
     const [address, setAddress] = useState("");
     const [contractDate, setContractDate] = useState("");
+    const [regionList, setRegionList] = useState([]);
     const [region, setRegion] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");    
     const [email, setEmail] = useState("");
@@ -18,6 +19,19 @@ const SignUpRV = () => {
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
     
+    useEffect(() => {
+        setRegionList([]);
+
+        axios.get('http://localhost:8080/regiones')
+        .then((res) => {
+            res.data.map(item => {
+                setRegionList(element => [...element, item]);
+            })
+        })
+        .catch((err) => {
+            console.log(err)
+        });
+    }, []);
 
     const handleCreateUser = () => {
         if(password == passwordConfirmation) {
@@ -128,8 +142,11 @@ const SignUpRV = () => {
                             <select name="region" id="region" value={region} className="w-32 lg:w-44 sm:w-44 mb-6 px-3 py-2 rounded-md bg-white shadow-md text-black 
                             font-medium font-title placeholder-slate-400" onChange={(e) => setRegion(e.target.value)} required>
                                 <option value="" disabled hidden> Región </option>
-                                <option value="regionA">Región A</option>
-                                <option value="regionB">Región B</option>
+                                {
+                                    regionList.map((region, index) => {
+                                        return(<option key={index} value={region.nombreRegion}> {region.nombreRegion} </option>);
+                                    })
+                                }
                             </select>
                         </div>
 

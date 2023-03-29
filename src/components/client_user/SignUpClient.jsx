@@ -47,10 +47,7 @@ const SignUpClient = () => {
         } else {
             alert('Las contaseñas no coinciden')
         }
-
-    }
-
-
+    };
 
     return (
         <main className="container flex justify-center mx-auto mt-12">
@@ -96,18 +93,18 @@ const SignUpClient = () => {
                             <fieldset value={genre} className="flex justify-around mb-6 px-3 py-2 rounded-md bg-white shadow-md text-black font-medium font-title 
                             placeholder-slate-400" onChange={(e) => setGenre(e.target.value)} required>
                                 <div className="flex">
-                                    <label htmlFor="male" className="mr-2"> Hombre </label>
+                                    <label htmlFor="M" className="mr-2"> Hombre </label>
                                     <input type="radio" name="genre" id="male" value="male" />
                                 </div>
 
                                 <div className="flex">
-                                    <label htmlFor="female" className="mr-2"> Mujer </label>
+                                    <label htmlFor="F" className="mr-2"> Mujer </label>
                                     <input type="radio" name="genre" id="female" value="female" />
                                 </div>
 
                                 <div className="flex">
                                     <label htmlFor="other" className="mr-2"> Otro </label>
-                                    <input type="radio" name="genre" id="other" value="other" />
+                                    <input type="radio" name="O" id="other" value="other" />
                                 </div>
                             </fieldset>
 

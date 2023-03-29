@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
-const LateralMenu = ({setUser, gradient, color}) => {
+const LateralMenu = ({setUsernameSS, gradient, color}) => {
     const navigate = useNavigate();
 
     const goToCatalog=()=>{
@@ -36,9 +37,20 @@ const LateralMenu = ({setUser, gradient, color}) => {
     }
 
     const handleLogOut = () => {
-        setUser("");
-        sessionStorage.setItem("user", "");
-        navigate("/");
+        axios.post("http://localhost:8080/database/logout")
+        .then(res => {
+            alert("Sesión cerrada");
+            
+            setUsernameSS("");
+            sessionStorage.setItem("username", "");
+            sessionStorage.setItem("password", "");
+            sessionStorage.setItem("role", "");
+
+            navigate("/");
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     return (

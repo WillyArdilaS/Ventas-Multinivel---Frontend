@@ -1,16 +1,44 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
-const LogIn = ({setUser}) => {
+const LogIn = ({setUsernameSS}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
     const navigate = useNavigate();
     
     const handleLogin = () => {
-        setUser("cliente"); // Agregar condición para que el usuario sea cliente, RV o master
-        sessionStorage.setItem("user", "cliente");
-        navigate("/Home");
+        if(username.length > 0 && password.length > 0) {
+            axios.get('http://localhost:8080/getUsuario', {params:{username: username, pass: password}})
+            .then(res => {
+                if(res.data.estado == "ACTIVO") {
+
+                    axios.post('http://localhost:8080/database', null, {params:{username: username, password: password}})
+                    .then(response => {
+                        alert("Conexion creada");
+
+                        setUsernameSS(username);
+                        sessionStorage.setItem("username", username);
+                        sessionStorage.setItem("password", password);
+                        sessionStorage.setItem("role", res.data.rol);
+                        
+                        navigate("/Home");
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    }) 
+                }
+            })
+            .catch(err => {
+                if(err.response.status == 404) {
+                    alert("El usuario no existe. \nTipo de error: " + err.message);
+                }
+            })
+        } else {
+            alert("Por favor complete todos los campos");
+        }
+        
     }
 
     return (
