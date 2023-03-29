@@ -3,44 +3,49 @@ import axios from "axios";
 
 const SignUpClient = () => {
     const [idType, setIdType] = useState("");
-    const [idNumber, setIdNumber] = useState("");
+    const [idNumber, setIdNumber] = useState();
     const [name, setName] = useState("");
     const [lastName, setLastName] = useState("");
     const [genre, setGenre] = useState("");
     const [city, setCity] = useState("");
     const [address, setAddress] = useState("");
     const [birthDate, setBirthDate] = useState("");
-    const [phoneNumber, setPhoneNumber] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState();
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
     const handleCreateUser = () => {
-        console.log("Registro funcionando");
         if (password == passwordConfirmation) {
+            var today = new Date()
+            today = today.getDate() + '/' + (today.getMonth()+1) + '/' + today.getFullYear();
+
+            var birth = new Date(birthDate);
+            birth = birth.getDate() + '/' + (birth.getMonth()+1) + '/' + birth.getFullYear();
+
             axios.post(`http://localhost:8080/cliente/save`,
                 {
                     tipoId: idType,
                     numeroId: idNumber,
-                    tipoIdRep: "CC",
-                    numeroIdRep: 5555559,
-                    tipoIdRepInicial: "CC",
-                    numeroIdRepInicial: 5555559,
+                    tipoIdRep: sessionStorage.getItem("tipoID"),
+                    numeroIdRep: Number(sessionStorage.getItem("numeroID")),
+                    tipoIdRepInicial: sessionStorage.getItem("tipoID"),
+                    numeroIdRepInicial: Number(sessionStorage.getItem("numeroID")),
                     nombreCompleto: name,
                     apellidoCompleto: lastName,
-                    fechaCreacion: "09/10/2020",
+                    fechaCreacion: today,
                     email: email,
                     telefono: phoneNumber,
                     ciudad: city,
                     genero: genre,
                     password: password,
-                    fNacimiento: birthDate,
+                    fNacimiento: birth,
                     direccion: address,
                     username: username
                 })
                 .then((res) => {
-
+                    alert("Cliente creado con éxito");
                 }).catch((err) => {
                     console.log(err)
                 })

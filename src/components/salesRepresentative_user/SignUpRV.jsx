@@ -3,17 +3,17 @@ import axios from 'axios';
 
 const SignUpRV = () => {
     const [idType, setIdType] = useState("");
-    const [idNumber, setIdNumber] = useState("");    
+    const [idNumber, setIdNumber] = useState();    
     const [name, setName] = useState("");
     const [lastName, setLastName] = useState("");
     const [genre, setGenre] = useState("");
-    const [birthDate, setBirthDate] = useState("");
+    const [birthDate, setBirthDate] = useState(Date);
     const [typePosition, setTypePosition] = useState("");
     const [address, setAddress] = useState("");
-    const [contractDate, setContractDate] = useState("");
+    const [contractDate, setContractDate] = useState(Date);
     const [regionList, setRegionList] = useState([]);
     const [region, setRegion] = useState("");
-    const [phoneNumber, setPhoneNumber] = useState("");    
+    const [phoneNumber, setPhoneNumber] = useState();    
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -35,28 +35,37 @@ const SignUpRV = () => {
 
     const handleCreateUser = () => {
         if(password == passwordConfirmation) {
+            var today = new Date()
+            today = today.getDate() + '/' + (today.getMonth()+1) + '/' + today.getFullYear();
+
+            var birth = new Date(birthDate);
+            birth = birth.getDate() + '/' + (birth.getMonth()+1) + '/' + birth.getFullYear();
+
+            var contract = new Date(contractDate);
+            contract = contract.getDate() + '/' + (contract.getMonth()+1) + '/' + contract.getFullYear();
+
             axios.post('http://localhost:8080/representante/save', {
                 tipoId: idType, 
                 numeroId: idNumber,
-                tipoIdJefe: "X",
-                numeroIdJefe: "X",
+                tipoIdJefe: sessionStorage.getItem("tipoID"),
+                numeroIdJefe: Number(sessionStorage.getItem("numeroID")),
                 nombreCompleto: name,
                 apellidoCompleto: lastName,
-                fechaCreacion: "X", 
+                fechaCreacion: today, 
                 email: email,
                 telefono: phoneNumber,
                 region: region,
                 genero: genre,
                 password: password,
-                fNacimiento: birthDate, 
+                fNacimiento: birth, 
                 direccion: address,
                 tipo: typePosition,
-                fechaContrato: contractDate,
+                fechaContrato: contract,
                 username: username,
                 estado: "ACTIVO"
             })
             .then(res => {
-    
+                alert("Representante creado con éxito");
             })
             .catch(err => {
                 console.log(err)

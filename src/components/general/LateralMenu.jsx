@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
-const LateralMenu = ({setUsernameSS, gradient, color}) => {
+const LateralMenu = ({setIdNumber, gradient, color}) => {
     const navigate = useNavigate();
 
     const goToCatalog=()=>{
@@ -41,9 +41,9 @@ const LateralMenu = ({setUsernameSS, gradient, color}) => {
         .then(res => {
             alert("Sesión cerrada");
             
-            setUsernameSS("");
-            sessionStorage.setItem("username", "");
-            sessionStorage.setItem("password", "");
+            setIdNumber("");
+            sessionStorage.setItem("tipoID", "");
+            sessionStorage.setItem("numeroID", "");
             sessionStorage.setItem("role", "");
 
             navigate("/");

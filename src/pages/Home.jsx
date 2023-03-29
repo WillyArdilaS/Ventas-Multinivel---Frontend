@@ -3,7 +3,7 @@ import LateralMenu from "../components/general/LateralMenu";
 import ProductCatalog from "../components/general/ProductCatalog";
 import axios from "axios";
 
-const Home = ({setUsernameSS, gradient, color}) => {
+const Home = ({setIdNumber, gradient, color}) => {
     const [regionList, setRegionList] = useState([]);
     const [regionName, setRegionName] = useState("");
     const [regionID, setRegionID] = useState(0);
@@ -126,7 +126,7 @@ const Home = ({setUsernameSS, gradient, color}) => {
                     </form>
                 </section>
 
-                <LateralMenu setUsernameSS={setUsernameSS} gradient={gradient} color={color}/>
+                <LateralMenu setIdNumber={setIdNumber} gradient={gradient} color={color}/>
                 <ProductCatalog/>
             </div>    
         </>

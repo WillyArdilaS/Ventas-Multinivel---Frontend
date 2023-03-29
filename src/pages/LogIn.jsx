@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
-const LogIn = ({setUsernameSS}) => {
+const LogIn = ({setIdNumber}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -15,14 +15,33 @@ const LogIn = ({setUsernameSS}) => {
                 if(res.data.estado == "ACTIVO") {
 
                     axios.post('http://localhost:8080/database', null, {params:{username: username, password: password}})
-                    .then(response => {
-                        alert("Conexion creada");
+                    .then(conResponse => {
+                        if(res.data.rol == "CLIENTE") {
+                            axios.get(`http://localhost:8080/cliente/${username}/${password}`)
+                            .then(response => {
 
-                        setUsernameSS(username);
-                        sessionStorage.setItem("username", username);
-                        sessionStorage.setItem("password", password);
+                                setIdNumber(response.data.id.kNumeroId);
+                                sessionStorage.setItem("tipoID", response.data.id.kTipoId);
+                                sessionStorage.setItem("numeroID", response.data.id.kNumeroId);
+                            })
+                            .catch(err => {
+                                console.log(err)
+                            })
+                        } else {
+                            axios.get(`http://localhost:8080/representante/${username}/${password}`)
+                            .then(response => {
+                                setIdNumber(response.data.id.kNumeroId);
+                                sessionStorage.setItem("tipoID", response.data.id.kTipoId);
+                                sessionStorage.setItem("numeroID", response.data.id.kNumeroId);
+                            })
+                            .catch(err => {
+                                console.log(err)
+                            })
+                        }
+
                         sessionStorage.setItem("role", res.data.rol);
-                        
+                        alert("Conexion creada");
+                    
                         navigate("/Home");
                     })
                     .catch(err => {

@@ -1,11 +1,11 @@
 import LateralMenu from "../components/general/LateralMenu";
 import RatingsRVContainer from "../components/salesRepresentative_user/RatingsRVContainer";
 
-const RatingsRV = ({setUsernameSS, gradient, color}) => {
+const RatingsRV = ({setIdNumber, gradient, color}) => {
   return (
     <>
         <div className="relative h-screen">
-            <LateralMenu setUsernameSS={setUsernameSS} gradient={gradient} color={color}/>  
+            <LateralMenu setIdNumber={setIdNumber} gradient={gradient} color={color}/>  
             <RatingsRVContainer/>
         </div>
     </>

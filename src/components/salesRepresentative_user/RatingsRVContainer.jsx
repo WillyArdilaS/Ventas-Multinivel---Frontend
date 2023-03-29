@@ -4,11 +4,13 @@ import axios from 'axios';
 
 const RatingsRVContainer = () => {
    const [ratings, setRatings] = useState([]);
+   var idType = sessionStorage.getItem("tipoID");
+   var idNumber = sessionStorage.getItem("numeroID");
 
    useEffect(()=>{
       setRatings([]);
       
-      axios.get(`http://localhost:8080/calificaciones/CC/530551232`)
+      axios.get(`http://localhost:8080/calificaciones/${idType}/${idNumber}`)
       .then(res => {
          res.data.map(item => {
             setRatings(element => [...element, item]);

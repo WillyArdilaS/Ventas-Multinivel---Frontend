@@ -1,11 +1,11 @@
 import LateralMenu from "../components/general/LateralMenu";
 import ShoppingCartContainer from "../components/general/ShoppingCartContainer";
 
-const ShoppingCart = ({setUsernameSS, gradient, color}) => {
+const ShoppingCart = ({setIdNumber, gradient, color}) => {
   return (
     <>
         <div className="relative h-screen">
-            <LateralMenu setUsernameSS={setUsernameSS} gradient={gradient} color={color}/>  
+            <LateralMenu setIdNumber={setIdNumber} gradient={gradient} color={color}/>  
             <ShoppingCartContainer/>
         </div>
     </>
