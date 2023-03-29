@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import axios from "axios";
 
 const InfoCard = () => {
     const navigate = useNavigate();
@@ -6,6 +8,21 @@ const InfoCard = () => {
     const goToChangeRV = () => {
         navigate("/ChangeRV");
     }
+
+    const usersName = JSON.stringify({ tipoId:'CC',numeroId:809993423});
+    useEffect(() => {
+        axios.get('http://localhost:8080/cliente/representante',usersName)
+        .then((res) => {
+            console.log(res.data)
+        //   res.data.map(item => {
+            
+        //   })
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }, [])
+    
 
     return (
         <main className="container flex justify-center mx-auto mt-28">
