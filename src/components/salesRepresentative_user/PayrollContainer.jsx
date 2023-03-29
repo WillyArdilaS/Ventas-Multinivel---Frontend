@@ -1,46 +1,54 @@
 import { useEffect, useState } from 'react';
 import PayrollItem from './PayrollItem';
-import payrollTemp from '../../data(temp)/payrollTemp.json';
+import axios from 'axios';
 
 const PayrollContainer = () => {
    const [payrolls, setPayrolls] = useState([]);
 
    useEffect(()=>{
-      setPayrolls(payrollTemp);
+
+      axios.get('http://localhost:8080/nomina')
+      .then(res => {
+         res.data.map(item => {
+            setPayrolls(element => [...element, item]);
+         })
+      })
+      .catch(err => {
+         console.log(err)
+      })
    },[]);
 
    if(payrolls.length !== 0){
    return(
-      <article className="fixed w-4/5 2xl:w-10/12 h-screen top-0 right-4
-        2xl:right-0 px-6 2xl:px-12 overflow-y-auto">
+      <article className="fixed w-4/5 2xl:w-10/12 h-screen top-0 right-4 2xl:right-0 px-6 2xl:px-12 overflow-y-auto">
          <table className="w-11/12 mt-14 mx-auto overflow-x-auto">
                <thead>
                   <tr className="bg-yellow text-white text-lg font-title text-center">
-                     <th className="w-1/6  px-1 py-4">
+                     <th className="w-1/6 px-3 py-4">
                         Nombre de Representante
                      </th>
 
-                     <th className="w-1/6  px-3 py-4">
+                     <th className="w-1/6 px-3 py-4">
                         Categoría
                      </th>
 
-                     <th className="w-1/6  px-3 py-4">
+                     <th className="w-1/6 px-3 py-4">
                         % comisión
                      </th>
 
-                     <th className="w-1/6  px-3 py-4">
+                     <th className="w-1/6 px-3 py-4">
                         Ventas
                      </th>
 
-                     <th className="w-1/6  px-3 py-4">
+                     <th className="w-1/6 px-3 py-4">
                         Prom. Calificaciones
                      </th>
 
-                     <th className="w-1/6  px-3 py-4">
+                     <th className="w-1/6 px-3 py-4">
                         Comisión total
                      </th>
 
-                     <th className="w-1/6  px-3 py-4">
+                     <th className="w-1/6 px-6 py-4">
                         Estado
                      </th>
                   </tr>
@@ -48,7 +56,7 @@ const PayrollContainer = () => {
 
                <tbody>
                   {
-                     payrolls.map(payroll => <PayrollItem key={payroll.id} payroll={payroll} />)
+                     payrolls.map((payroll, index) => <PayrollItem key={index} payroll={payroll} />)
                   }
                </tbody>
             </table>
