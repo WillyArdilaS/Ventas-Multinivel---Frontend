@@ -1,12 +1,15 @@
 import { useState } from "react";
+import axios from 'axios';
 
 const SignUpRV = () => {
     const [idType, setIdType] = useState("");
     const [idNumber, setIdNumber] = useState("");    
     const [name, setName] = useState("");
     const [lastName, setLastName] = useState("");
+    const [genre, setGenre] = useState("");
+    const [birthDate, setBirthDate] = useState("");
     const [typePosition, setTypePosition] = useState("");
-    const [addres, setAddress] = useState("");
+    const [address, setAddress] = useState("");
     const [contractDate, setContractDate] = useState("");
     const [region, setRegion] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");    
@@ -14,9 +17,39 @@ const SignUpRV = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
+    
 
     const handleCreateUser = () => {
-        console.log("Registro funcionando");
+        if(password == passwordConfirmation) {
+            axios.post('http://localhost:8080/representante/save', {
+                tipoId: idType, 
+                numeroId: idNumber,
+                tipoIdJefe: "X",
+                numeroIdJefe: "X",
+                nombreCompleto: name,
+                apellidoCompleto: lastName,
+                fechaCreacion: "X", 
+                email: email,
+                telefono: phoneNumber,
+                region: region,
+                genero: genre,
+                password: password,
+                fNacimiento: birthDate, 
+                direccion: address,
+                tipo: typePosition,
+                fechaContrato: contractDate,
+                username: username,
+                estado: "ACTIVO"
+            })
+            .then(res => {
+    
+            })
+            .catch(err => {
+                console.log(err)
+            });
+        } else {
+            alert("Las contraseñas no coinciden")
+        }
     }
 
     return (
@@ -58,7 +91,64 @@ const SignUpRV = () => {
                     </div>
 
                     <div className="w-4/5 flex justify-between mx-auto">
-                      
+                        <div id="form-genre" className="w-full">
+                            <fieldset value={genre} className="flex justify-around mb-6 px-3 py-2 rounded-md bg-white shadow-md text-black font-medium font-title 
+                            placeholder-slate-400" onChange={(e) => setGenre(e.target.value)} required>
+                                <div className="flex">
+                                    <label htmlFor="M" className="mr-2"> Hombre </label>
+                                    <input type="radio" name="genre" id="male" value="male" />
+                                </div>
+
+                                <div  className="flex">
+                                    <label htmlFor="F" className="mr-2"> Mujer </label>
+                                    <input type="radio" name="genre" id="female" value="female"/>
+                                </div>
+
+                                <div  className="flex">
+                                    <label htmlFor="O" className="mr-2"> Otro </label>
+                                    <input type="radio" name="genre" id="other" value="other"/>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+
+                    <div className="w-4/5 flex justify-between mx-auto">
+                        <div id="form-birthDate" className="flex w-full justify-between mb-6 px-3 py-2 rounded-md bg-white shadow-md text-slate-400 font-medium font-title 
+                        placeholder-slate-400">
+                            <h1> Fecha de nacimiento </h1>
+                            
+                            <label htmlFor="birthDate"></label>
+                            <input type="date" name="birthDate" id="birthDate" value={birthDate} className="text-black" onChange={(e) => setBirthDate(e.target.value)} required/>
+                        </div>   
+                    </div>
+
+                    <div className="w-4/5 flex justify-between mx-auto">
+                        <div id="form-region">
+                            <label htmlFor="region"></label>
+                            <select name="region" id="region" value={region} className="w-32 lg:w-44 sm:w-44 mb-6 px-3 py-2 rounded-md bg-white shadow-md text-black 
+                            font-medium font-title placeholder-slate-400" onChange={(e) => setRegion(e.target.value)} required>
+                                <option value="" disabled hidden> Región </option>
+                                <option value="regionA">Región A</option>
+                                <option value="regionB">Región B</option>
+                            </select>
+                        </div>
+
+                        <div id="form-phoneNumber">
+                            <label htmlFor="phoneNumber"></label>
+                            <input type="text" name="phoneNumber" id="phoneNumber" value={phoneNumber} placeholder="Número de Teléfono" className="w-32 lg:w-44 sm:w-44 mb-6 px-3 
+                            py-2 rounded-md bg-white shadow-md text-black font-medium font-title placeholder-slate-400" 
+                            onChange={(e) => setPhoneNumber(e.target.value)} required/>
+                        </div>
+                    </div>
+
+                    <div id="form-address" className="flex justify-center">
+                        <label htmlFor="address"></label>
+                        <input type="text" name="address" id="address" value={address} placeholder="Dirección" className="w-4/5 mb-6 px-3 py-2 rounded-md 
+                        bg-white shadow-md text-black font-medium font-title placeholder-slate-400" onChange={(e) => setAddress(e.target.value)} required/>
+                    </div>
+                    
+                    
+                    <div className="w-4/5 flex justify-between mx-auto">    
                         <div id="form-typePosition" className="w-full">
                             <label htmlFor="typePosition"></label>
                             <fieldset value={typePosition} className="flex justify-around mb-6 px-3 py-2 bg-white shadow-md rounded-md  
@@ -81,14 +171,7 @@ const SignUpRV = () => {
                                     <input type="radio" name="typePosition" id="master" value="master"/>
                                 </div>
                             </fieldset>
-                           
                         </div>
-                    </div>
-
-                    <div id="form-address" className="flex justify-center">
-                        <label htmlFor="address"></label>
-                        <input type="text" name="address" id="address" value={addres} placeholder="Dirección" className="w-4/5 mb-6 px-3 py-2 rounded-md 
-                        bg-white shadow-md text-black font-medium font-title placeholder-slate-400" onChange={(e) => setAddress(e.target.value)} required/>
                     </div>
 
                     <div className="w-4/5 flex justify-between mx-auto">
@@ -101,26 +184,6 @@ const SignUpRV = () => {
                             onChange={(e) => setContractDate(e.target.value)} required/>
                         </div>   
                     </div>
-                    
-                    <div className="w-4/5 flex justify-between mx-auto">
-                        <div id="form-region">
-                            <label htmlFor="region"></label>
-                            <select name="region" id="region" value={region} className="w-32 lg:w-44 sm:w-44 mb-6 px-3 py-2 rounded-md bg-white shadow-md text-black 
-                            font-medium font-title placeholder-slate-400" onChange={(e) => setRegion(e.target.value)} required>
-                                <option value="" disabled hidden> Región </option>
-                                <option value="regionA">Región A</option>
-                                <option value="regionB">Región B</option>
-                            </select>
-                        </div>
-
-                        <div id="form-phoneNumber">
-                            <label htmlFor="phoneNumber"></label>
-                            <input type="text" name="phoneNumber" id="phoneNumber" value={phoneNumber} placeholder="Número de Teléfono" className="w-32 lg:w-44 sm:w-44 mb-6 px-3 
-                            py-2 rounded-md bg-white shadow-md text-black font-medium font-title placeholder-slate-400" 
-                            onChange={(e) => setPhoneNumber(e.target.value)} required/>
-                        </div>
-                    </div>
-                    
 
                     <div id="form-email" className="flex justify-center">
                         <label htmlFor="email"></label>
