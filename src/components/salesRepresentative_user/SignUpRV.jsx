@@ -46,14 +46,14 @@ const SignUpRV = () => {
 
             axios.post('http://localhost:8080/representante/save', {
                 tipoId: idType, 
-                numeroId: idNumber,
+                numeroId: Number(idNumber),
                 tipoIdJefe: sessionStorage.getItem("tipoID"),
                 numeroIdJefe: Number(sessionStorage.getItem("numeroID")),
                 nombreCompleto: name,
                 apellidoCompleto: lastName,
                 fechaCreacion: today, 
                 email: email,
-                telefono: phoneNumber,
+                telefono: Number(phoneNumber),
                 region: region,
                 genero: genre,
                 password: password,
@@ -119,17 +119,17 @@ const SignUpRV = () => {
                             placeholder-slate-400" onChange={(e) => setGenre(e.target.value)} required>
                                 <div className="flex">
                                     <label htmlFor="M" className="mr-2"> Hombre </label>
-                                    <input type="radio" name="genre" id="male" value="male" />
+                                    <input type="radio" name="genre" id="male" value="M" />
                                 </div>
 
                                 <div  className="flex">
                                     <label htmlFor="F" className="mr-2"> Mujer </label>
-                                    <input type="radio" name="genre" id="female" value="female"/>
+                                    <input type="radio" name="genre" id="female" value="F"/>
                                 </div>
 
                                 <div  className="flex">
                                     <label htmlFor="O" className="mr-2"> Otro </label>
-                                    <input type="radio" name="genre" id="other" value="other"/>
+                                    <input type="radio" name="genre" id="other" value="O"/>
                                 </div>
                             </fieldset>
                         </div>
@@ -180,21 +180,21 @@ const SignUpRV = () => {
                             <fieldset value={typePosition} className="flex justify-around mb-6 px-3 py-2 bg-white shadow-md rounded-md  
                                     text-black font-medium font-title placeholder-slate-400" onChange={(e) => setTypePosition(e.target.value)} required>
                                 <div className="flex">
-                                    <label htmlFor="begginer" className="mr-2">Begginer</label>
-                                    <input type="radio" name="typePosition" id="begginer" value="begginer" />
+                                    <label htmlFor="BEGINNER" className="mr-2">Beginner</label>
+                                    <input type="radio" name="typePosition" id="begginer" value="BEGGINER" />
                                 </div>
 
                                 <div className="flex">
-                                    <label htmlFor="junior" className="mr-2">Junior</label>
-                                    <input type="radio" name="typePosition" id="junior" value="junior" />
+                                    <label htmlFor="JUNIOR" className="mr-2">Junior</label>
+                                    <input type="radio" name="typePosition" id="junior" value="JUNIOR" />
                                 </div>
                                 <div className="flex">
-                                    <label htmlFor="senior" className="mr-2">Senior</label>
-                                    <input type="radio" name="typePosition" id="senior" value="senior"/>
+                                    <label htmlFor="SENIOR" className="mr-2">Senior</label>
+                                    <input type="radio" name="typePosition" id="senior" value="SENIOR"/>
                                 </div>
                                 <div className="flex">
-                                    <label htmlFor="master" className="mr-2">Master</label>
-                                    <input type="radio" name="typePosition" id="master" value="master"/>
+                                    <label htmlFor="MASTER" className="mr-2">Master</label>
+                                    <input type="radio" name="typePosition" id="master" value="MASTER"/>
                                 </div>
                             </fieldset>
                         </div>
