@@ -5,66 +5,11 @@ import axios from "axios"
 const ProductCard = ({info, regionID}) => {
     const {addProduct} = useCartContext();
     const [quantity, setQuantity] = useState(0)
-    const [idTypeRV, setIdTypeRV] = useState("")
-    const [idNumberRV, setIdNumberRV] = useState()
-    const [idLastOrder, setIdLastOrder] = useState()
-    const [idProduct, setIdProduct] = useState()
-    const [lastPeriod, setLastPeriod] = useState("")
 
-
-    var today = new Date()
-    today = today.getDate() + '/' + (today.getMonth()+1) + '/' + today.getFullYear();
+   
     
     const onAdd = () =>{
-        axios.get(`http://localhost:8080/cliente/representante/${sessionStorage.getItem("numeroID")}/${sessionStorage.getItem("tipoID")}`)
-        .then((res) => {
-            setIdTypeRV(res.data.id.kTipoId)
-            setIdNumberRV(res.data.id.kNumeroId)
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-
-        axios.get('http://localhost:8080/orden/maxima')
-        .then(res => {
-            setIdLastOrder(res.data.id.idOrden + 1);
-        })
-        .catch(err => {
-            console.log(err)
-        }) 
-
-        axios.get('http://localhost:8080/periodo/ultimo')
-        .then(res => {
-            setLastPeriod(res.data.id)
-        })
-        .catch(err => {
-            console.log(err)
-        })
-
-        axios.post('http://localhost:8080/nuevaOrden', {
-            idOrden: idLastOrder,
-            idProducto: info.id,
-            idRegion: regionID,
-            idPeriodo: lastPeriod, 
-            fechaRegistro: today,
-            estado: "EN PROCESO",
-            tipoIDCliente: sessionStorage.getItem("tipoID"),
-            numeroIDCliente: sessionStorage.getItem("numeroID"),
-            tipoIDCalif: sessionStorage.getItem("tipoID"),
-            numeroIDCalif: sessionStorage.getItem("numeroID"),
-            calificacion: null,
-            cantidad: quantity,
-            tipoIDRV: idTypeRV,
-            numeroIDRV: idNumberRV
-        })
-        .then(() => {
-            alert("Producto agregado al carrito");
-        })
-        .catch(err => {
-            console.log(err)
-        })
-
-        //addProduct(info,quantity, idLastOrder, idProduct, regionID);
+        addProduct(info, quantity, regionID);
     }
     
     return (

@@ -21,7 +21,6 @@ const ProductCatalog = ({url, regionID}) => {
     } else {
       console.log(url)
     }
-    
   }, [url])
 
   return (

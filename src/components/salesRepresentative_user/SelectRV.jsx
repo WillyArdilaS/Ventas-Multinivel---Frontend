@@ -68,7 +68,7 @@ const InfoCard = () => {
     const updateRV=()=>{
         
         axios.put('http://localhost:8080/cliente/cambioRV',{tipoIdCliente:sessionStorage.getItem("tipoID"),idCliente:sessionStorage.getItem("numeroID"),tipoIdRV:idTypeRV,idRV:idRV})
-        .then((res)=>{
+        .then(()=>{
             alert("Representante actualizado con éxito");
             navigate("/ShowRV");
 
@@ -76,8 +76,6 @@ const InfoCard = () => {
             console.log(err)
         })
     }
-
-
 
     return (
         <main className="container flex justify-center mx-auto mt-20">

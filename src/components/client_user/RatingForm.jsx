@@ -27,7 +27,7 @@ const RatingForm = () => {
   const navigate = useNavigate();
 
     const goToHome=()=>{
-      processEnd()
+      processEnd(qualificationRV)
       navigate("/Home");
     }
 

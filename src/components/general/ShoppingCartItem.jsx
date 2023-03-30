@@ -6,19 +6,19 @@ const ShoppingCartItem = ({ product }) => {
     return (
         <tr className="border-b-2 border-yellow text-black text-center text-base font-semibold font-paragraph">
             <td className="px-6 py-4">
-                <img src={product.url} alt=""  className='rounded-2xl object-cover h-25 w-80'/>
+                <img src={product.inventario.idProducto.nUrlimagen} alt=""  className='rounded-2xl object-cover h-25 w-80'/>
             </td>
             <td>
-                {product.nombreProducto}
+                {product.inventario.idProducto.nNombre}
             </td>
             <td>
-                 ${product.precio}
+                 ${product.inventario.precioProducto}
             </td>
             <td>
-                {product.quantity}
+                {product.cantidad}
             </td>
             <td>
-                {product.quantity*product.precio}
+                {product.cantidad*product.inventario.precioProducto}
                
             </td>
             <td className='flex justify-center py-16'> 
