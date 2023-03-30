@@ -49,15 +49,22 @@ const Home = ({setIdNumber, gradient, color}) => {
 
             axios.get(`http://localhost:8080/subcategorias/${categorieID}`)
             .then((res) => {
-                res.data.map(item => {
-                    setSubcategorieList(element => [...element, item]);
-                })
+                if(res.data.length==0){
+                    setSubcategorie("")
+                }else{
+                    res.data.map(item => {
+                        setSubcategorieList(element => [...element, item]);
+                    })
+                }
+                
             })
             .catch((err) => {
                 console.log(err)
             });
         }
     }, [categorieName]);
+
+    
 
     const selectRegion = (e) => {
         setRegionName(e);

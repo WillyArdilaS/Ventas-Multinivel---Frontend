@@ -7,6 +7,7 @@ const Graphics = () => {
   const [typeStatistic, setTypeStatistic] = useState("");
   const [period, setPeriod] = useState("");
   const [periodList, setPeriodList] = useState([]);
+  
 
   
   useEffect(() => {

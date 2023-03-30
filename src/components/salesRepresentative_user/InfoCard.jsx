@@ -1,22 +1,35 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import axios from "axios";
 
 const InfoCard = () => {
+
+    const [completeName, setCompleteName] = useState("");
+    
+    const [type, setType] = useState("");
+    const [region, setRegion] = useState("");
+
     const navigate = useNavigate();
 
     const goToChangeRV = () => {
         navigate("/ChangeRV");
     }
 
-    const usersName = JSON.stringify({ tipoId:'CC',numeroId:809993423});
+    
+
     useEffect(() => {
-        axios.get('http://localhost:8080/cliente/representante',usersName)
+        axios.get(`http://localhost:8080/cliente/representante/809993423/CC`)
         .then((res) => {
-            console.log(res.data)
-        //   res.data.map(item => {
-            
-        //   })
+            console.log(res.data.id.kTipoId)
+            console.log(res.data.id.kNumeroId)
+            const name = res.data.nombreCompleto+' '+res.data.apellidoCompleto
+            setCompleteName(name)
+            setType(res.data.tipo)
+            setRegion(res.data.region)
+            sessionStorage.setItem("region",res.data.region)
+            sessionStorage.setItem("tipo",res.data.tipo)
+            sessionStorage.setItem("tipoIdRV",res.data.id.kTipoId)
+            sessionStorage.setItem("numeroIdRV",res.data.id.kNumeroId)
         })
         .catch((err) => {
           console.log(err)
@@ -30,21 +43,21 @@ const InfoCard = () => {
                 <div className="w-4/5 flex justify-between mx-auto">
                     <div id="infoCard-name" className="flex w-full justify-between mb-6 px-4 py-2 rounded-md bg-white shadow-md font-medium font-title">
                         <h1 className="text-slate-400"> Nombre Completo </h1>
-                        <h1 className="text-black"> William Ardila </h1>
+                        <h1 className="text-black">{completeName} </h1>
                     </div>   
                 </div>
                 
                 <div className="w-4/5 flex justify-between mx-auto">
                     <div id="infoCard-typePosition" className="flex w-full justify-between mb-6 px-4 py-2 rounded-md bg-white shadow-md font-medium font-title">
                         <h1 className="text-slate-400"> Categoría </h1>
-                        <h1 className="text-black "> Junior </h1>
+                        <h1 className="text-black "> {type} </h1>
                     </div>   
                 </div>
                 
                 <div className="w-4/5 flex justify-between mx-auto">
                     <div id="infoCard-region" className="flex w-full justify-between mb-6 px-4 py-2 rounded-md bg-white shadow-md font-medium font-title">
                         <h1 className="text-slate-400"> Region </h1>
-                        <h1 className="text-black "> Region 1 </h1>
+                        <h1 className="text-black "> {region} </h1>
                     </div>   
                 </div>
 
