@@ -6,10 +6,10 @@ const ShoppingCartItem = ({ product }) => {
     return (
         <tr className="border-b-2 border-yellow text-black text-center text-base font-semibold font-paragraph">
             <td className="px-6 py-4">
-                <img src={product.ruta_imagen} alt=""  className='rounded-2xl object-cover h-25 w-80'/>
+                <img src={product.url} alt=""  className='rounded-2xl object-cover h-25 w-80'/>
             </td>
             <td>
-                {product.nombre}
+                {product.nombreProducto}
             </td>
             <td>
                  ${product.precio}
