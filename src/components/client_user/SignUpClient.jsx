@@ -24,10 +24,13 @@ const SignUpClient = () => {
             var birth = new Date(birthDate);
             birth = birth.getDate() + '/' + (birth.getMonth()+1) + '/' + birth.getFullYear();
 
+            console.log('fech c:'+today)
+            console.log('fech n'+birth)
+            
             axios.post(`http://localhost:8080/cliente/save`,
                 {
                     tipoId: idType,
-                    numeroId: idNumber,
+                    numeroId: Number(idNumber),
                     tipoIdRep: sessionStorage.getItem("tipoID"),
                     numeroIdRep: Number(sessionStorage.getItem("numeroID")),
                     tipoIdRepInicial: sessionStorage.getItem("tipoID"),
@@ -36,7 +39,7 @@ const SignUpClient = () => {
                     apellidoCompleto: lastName,
                     fechaCreacion: today,
                     email: email,
-                    telefono: phoneNumber,
+                    telefono: Number(phoneNumber),
                     ciudad: city,
                     genero: genre,
                     password: password,
@@ -99,17 +102,17 @@ const SignUpClient = () => {
                             placeholder-slate-400" onChange={(e) => setGenre(e.target.value)} required>
                                 <div className="flex">
                                     <label htmlFor="M" className="mr-2"> Hombre </label>
-                                    <input type="radio" name="genre" id="male" value="male" />
+                                    <input type="radio" name="genre" id="male" value="M" />
                                 </div>
 
                                 <div className="flex">
                                     <label htmlFor="F" className="mr-2"> Mujer </label>
-                                    <input type="radio" name="genre" id="female" value="female" />
+                                    <input type="radio" name="genre" id="female" value="F" />
                                 </div>
 
                                 <div className="flex">
                                     <label htmlFor="other" className="mr-2"> Otro </label>
-                                    <input type="radio" name="O" id="other" value="other" />
+                                    <input type="radio" name="O" id="other" value="O" />
                                 </div>
                             </fieldset>
 
