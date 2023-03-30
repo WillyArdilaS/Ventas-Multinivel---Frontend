@@ -38,7 +38,7 @@ const LateralMenu = ({setIdNumber, gradient, color}) => {
 
     const handleLogOut = () => {
         axios.post("http://localhost:8080/database/logout")
-        .then(res => {
+        .then(() => {
             alert("Sesión cerrada");
             
             setIdNumber("");
@@ -57,7 +57,8 @@ const LateralMenu = ({setIdNumber, gradient, color}) => {
         <article className={`fixed w-1/6 top-0 left-0 h-full bg-gradient-to-b ` + gradient}>
             <img src="https://res.cloudinary.com/dn1k0drir/image/upload/v1679111733/NatAmE/Logo_oeniv6.png" alt="Logo de la app" id="appLogo" className="w-36 2xl:w-56 mx-auto" />
 
-            <h1 className="text-center text-white text-base 2xl:text-lg font-medium font-subtitle"> Laura Ramírez - Master </h1> {/*Cambiar el nombre y rol segun el resultado de la BD */}
+            <h1 className="text-center text-white text-base 2xl:text-lg font-medium font-subtitle"> {
+            sessionStorage.getItem("nombreCompleto") + " - " + sessionStorage.getItem("role")} </h1>
 
             <section className="flex flex-col justify-around items-center h-3/4 mt-5">
                 <button id="button-signIn" value="products" className={`flex items-center w-10/12 2xl:w-3/5 px-2 2xl:px-4 py-2 2xl:py-3 border-white border-x-2 border-y-2 

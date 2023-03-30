@@ -13,9 +13,8 @@ const LogIn = ({setIdNumber}) => {
             axios.get('http://localhost:8080/getUsuario', {params:{username: username, pass: password}})
             .then(res => {
                 if(res.data.estado == "ACTIVO") {
-
                     axios.post('http://localhost:8080/database', null, {params:{username: username, password: password}})
-                    .then(conResponse => {
+                    .then(() => {
                         if(res.data.rol == "CLIENTE") {
                             axios.get(`http://localhost:8080/cliente/${username}/${password}`)
                             .then(response => {
@@ -26,7 +25,15 @@ const LogIn = ({setIdNumber}) => {
                             })
                             .catch(err => {
                                 console.log(err)
+                            });
+
+                            axios.get(`http://localhost:8080/cliente/${username}/${password}`)
+                            .then(resName => {
+                                sessionStorage.setItem("nombreCompleto", (resName.data.nombreCompleto + " " + resName.data.apellidoCompleto));
                             })
+                            .catch(err => {
+                                console.log(err)
+                            });
                         } else {
                             axios.get(`http://localhost:8080/representante/${username}/${password}`)
                             .then(response => {
@@ -36,7 +43,15 @@ const LogIn = ({setIdNumber}) => {
                             })
                             .catch(err => {
                                 console.log(err)
+                            });
+
+                            axios.get(`http://localhost:8080/representante/${username}/${password}`)
+                            .then(resName => {
+                                sessionStorage.setItem("nombreCompleto", (resName.data.nombreCompleto + " " + resName.data.apellidoCompleto));
                             })
+                            .catch(err => {
+                                console.log(err)
+                            });
                         }
 
                         sessionStorage.setItem("role", res.data.rol);

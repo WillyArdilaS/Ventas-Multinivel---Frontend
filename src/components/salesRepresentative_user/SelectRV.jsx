@@ -23,8 +23,6 @@ const InfoCard = () => {
         navigate("/ShowRV");
     }
 
-    
-
     useEffect(() => {
         if (!getRV(URLONE)) {
             alert('En este momento no hay un Representante del mismo tipo y regional. \n Sin embargo podemos asignarte uno del mismo tipo (' + sessionStorage.getItem('tipo') + ')')
