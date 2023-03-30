@@ -33,7 +33,6 @@ function App() {
       setGradient("from-lightBlue to-darkBlue")
       setColor("darkBlue"); 
     } 
-    
   }, [idNumber]);
 
   return (

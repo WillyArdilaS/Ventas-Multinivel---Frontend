@@ -42,6 +42,7 @@ const LateralMenu = ({setIdNumber, gradient, color}) => {
             alert("Sesión cerrada");
             
             setIdNumber("");
+            sessionStorage.setItem("nombreCompleto", "");
             sessionStorage.setItem("tipoID", "");
             sessionStorage.setItem("numeroID", "");
             sessionStorage.setItem("role", "");

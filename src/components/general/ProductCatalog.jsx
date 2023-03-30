@@ -1,27 +1,23 @@
 import ProductCard from "./ProductCard"
-import productsTemp from "../../data(temp)/productsTemp.json"
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 const ProductCatalog = ({ url }) => {
-
   const [products, setProducts] = useState([]);
 
-  console.log(url)
-
-  
   useEffect(() => {
     if (url != '') {
       setProducts([])
-      axios.get(url).then((res) => {
-          
+
+      axios.get(url)
+      .then((res) => {
           res.data.map(item=>{
-            
-            setProducts(element => [...element, item]);
+          setProducts(element => [...element, item]);
           })
-        }).catch((err) => {
+      })
+      .catch((err) => {
           console.log(err)
-        })
+      })
     } else {
       console.log(url)
     }

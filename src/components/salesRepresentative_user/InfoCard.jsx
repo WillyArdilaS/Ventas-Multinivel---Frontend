@@ -15,19 +15,15 @@ const InfoCard = () => {
         navigate("/ChangeRV");
     }
 
-    
-
     useEffect(() => {
-        axios.get(`http://localhost:8080/cliente/representante/809993423/CC`)
+        axios.get(`http://localhost:8080/cliente/representante/${sessionStorage.getItem("numeroID")}/${sessionStorage.getItem("tipoID")}`)
         .then((res) => {
-            console.log(res.data.id.kTipoId)
-            console.log(res.data.id.kNumeroId)
             const name = res.data.nombreCompleto+' '+res.data.apellidoCompleto
             setCompleteName(name)
             setType(res.data.tipo)
             setRegion(res.data.region)
-            sessionStorage.setItem("region",res.data.region)
-            sessionStorage.setItem("tipo",res.data.tipo)
+            sessionStorage.setItem("regionRV",res.data.region)
+            sessionStorage.setItem("cargoRV",res.data.tipo)
             sessionStorage.setItem("tipoIdRV",res.data.id.kTipoId)
             sessionStorage.setItem("numeroIdRV",res.data.id.kNumeroId)
         })

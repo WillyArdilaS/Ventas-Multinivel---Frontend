@@ -2,7 +2,7 @@ import { useCartContext } from '../../context/CartContext'
 import { useState } from 'react'
 
 
-const ProductCard = ({user, info}) => {
+const ProductCard = ({info}) => {
     const { addProduct } = useCartContext();
     const [quantity, setQuantity] = useState(0)
     
@@ -14,7 +14,7 @@ const ProductCard = ({user, info}) => {
         <article id="productCard" className="w-2/3 flex flex-col items-center mx-auto mb-36 px-6 bg-white shadow-md rounded-md">
             <img src={info.url} alt="Imagen del producto" id="productImage" width="200" 
             height="100" className="-mt-14"/>
-            <h2 className="mt-2 text-yellow text-xl font-title font-bold"> {info.nombreProducto} </h2>
+            <h2 className="mt-2 text-yellow text-xl text-center font-title font-bold"> {info.nombreProducto} </h2>
 
             <div id="details-quantity" className="flex items-center mt-4">
                 <h3 className="ml-1 text-sm text-center text-black font-paragraph font-semibold"> Cantidad disponible: </h3>

@@ -6,7 +6,7 @@ const InfoCard = () => {
 
     const navigate = useNavigate();
 
-    const typeRV = ['BEGINNER', 'JUNIOR', 'SENIOR', 'MASTER'].filter(element => element != sessionStorage.getItem("tipo"))
+    const typeRV = ['BEGINNER', 'JUNIOR', 'SENIOR', 'MASTER'].filter(element => element != sessionStorage.getItem("cargoRV"))
 
     const [rvSelected, setRvSelected] = useState([]);
     const [name, setName] = useState("");
@@ -15,8 +15,8 @@ const InfoCard = () => {
     const [idRV, setIdRV] = useState();
     const [idTypeRV, setIdTypeRV] = useState("")
 
-    const URLONE = 'http://localhost:8080/representantes_por_region_rango/' + sessionStorage.getItem("region") + '/' + sessionStorage.getItem("tipo")
-    const URLTWO = 'http://localhost:8080/representantes_por_rango/' + sessionStorage.getItem("tipo")
+    const URLONE = 'http://localhost:8080/representantes_por_region_rango/' + sessionStorage.getItem("regionRV") + '/' + sessionStorage.getItem("cargoRV")
+    const URLTWO = 'http://localhost:8080/representantes_por_rango/' + sessionStorage.getItem("cargoRV")
     
 
     const goToRVInfo = () => {
@@ -25,7 +25,7 @@ const InfoCard = () => {
 
     useEffect(() => {
         if (!getRV(URLONE)) {
-            alert('En este momento no hay un Representante del mismo tipo y regional. \n Sin embargo podemos asignarte uno del mismo tipo (' + sessionStorage.getItem('tipo') + ')')
+            alert('En este momento no hay un Representante del mismo tipo y regional. \n Sin embargo podemos asignarte uno del mismo tipo (' + sessionStorage.getItem('cargoRV') + ')')
             getRV(URLTWO)
         }
     }, [])
@@ -37,7 +37,6 @@ const InfoCard = () => {
         setName(rvSelected[option].nameRV)
         setType(rvSelected[option].tipo)
         setRegion(rvSelected[option].region)
-        
     }
 
 

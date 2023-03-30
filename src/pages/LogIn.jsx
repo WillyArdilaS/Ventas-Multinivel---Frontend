@@ -15,21 +15,14 @@ const LogIn = ({setIdNumber}) => {
                 if(res.data.estado == "ACTIVO") {
                     axios.post('http://localhost:8080/database', null, {params:{username: username, password: password}})
                     .then(() => {
+                        console.log(res.data.rol)
                         if(res.data.rol == "CLIENTE") {
-                            axios.get(`http://localhost:8080/cliente/${username}/${password}`)
+                            axios.get(`http://localhost:8080/cliente_por_email_password/${username}/${password}`)
                             .then(response => {
-
                                 setIdNumber(response.data.id.kNumeroId);
+                                sessionStorage.setItem("nombreCompleto", (response.data.nombreCompleto + " " + response.data.apellidoCompleto));
                                 sessionStorage.setItem("tipoID", response.data.id.kTipoId);
                                 sessionStorage.setItem("numeroID", response.data.id.kNumeroId);
-                            })
-                            .catch(err => {
-                                console.log(err)
-                            });
-
-                            axios.get(`http://localhost:8080/cliente/${username}/${password}`)
-                            .then(resName => {
-                                sessionStorage.setItem("nombreCompleto", (resName.data.nombreCompleto + " " + resName.data.apellidoCompleto));
                             })
                             .catch(err => {
                                 console.log(err)
@@ -38,16 +31,9 @@ const LogIn = ({setIdNumber}) => {
                             axios.get(`http://localhost:8080/representante/${username}/${password}`)
                             .then(response => {
                                 setIdNumber(response.data.id.kNumeroId);
+                                sessionStorage.setItem("nombreCompleto", (response.data.nombreCompleto + " " + response.data.apellidoCompleto));
                                 sessionStorage.setItem("tipoID", response.data.id.kTipoId);
                                 sessionStorage.setItem("numeroID", response.data.id.kNumeroId);
-                            })
-                            .catch(err => {
-                                console.log(err)
-                            });
-
-                            axios.get(`http://localhost:8080/representante/${username}/${password}`)
-                            .then(resName => {
-                                sessionStorage.setItem("nombreCompleto", (resName.data.nombreCompleto + " " + resName.data.apellidoCompleto));
                             })
                             .catch(err => {
                                 console.log(err)
@@ -72,7 +58,6 @@ const LogIn = ({setIdNumber}) => {
         } else {
             alert("Por favor complete todos los campos");
         }
-        
     }
 
     return (
