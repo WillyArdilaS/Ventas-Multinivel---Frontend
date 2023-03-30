@@ -8,6 +8,9 @@ const ProductCard = ({info, regionID}) => {
     const [idTypeRV, setIdTypeRV] = useState("")
     const [idNumberRV, setIdNumberRV] = useState()
     const [idLastOrder, setIdLastOrder] = useState()
+    const [idProduct, setIdProduct] = useState()
+    const [lastPeriod, setLastPeriod] = useState("")
+
 
     var today = new Date()
     today = today.getDate() + '/' + (today.getMonth()+1) + '/' + today.getFullYear();
@@ -30,30 +33,38 @@ const ProductCard = ({info, regionID}) => {
             console.log(err)
         }) 
 
-        // axios.post('http://localhost:8080/nuevaOrden', {
-        //     idOrden: idLastOrder,
-        //     idProducto: info.id,
-        //     idRegion: regionID,
-        //     idPeriodo: , 
-        //     fechaRegistro: today,
-        //     estado: "EN CARRITO",
-        //     tipoIDCliente: sessionStorage.getItem("tipoID"),
-        //     numeroIDCliente: sessionStorage.getItem("numeroID"),
-        //     tipoIDCalif: sessionStorage.getItem("tipoID"),
-        //     numeroIDCalif: sessionStorage.getItem("numeroID"),
-        //     calificacion: null,
-        //     cantidad: quantity,
-        //     tipoIDRV: idTypeRV,
-        //     numeroIDRV: idNumberRV
-        // })
-        // .then(() => {
-        //     alert("Producto agregado al carrito");
-        // })
-        // .catch(err => {
-        //     console.log(err)
-        // })
+        axios.get('http://localhost:8080/periodo/ultimo')
+        .then(res => {
+            setLastPeriod(res.data.id)
+        })
+        .catch(err => {
+            console.log(err)
+        })
 
-        // addProduct(info,quantity);
+        axios.post('http://localhost:8080/nuevaOrden', {
+            idOrden: idLastOrder,
+            idProducto: info.id,
+            idRegion: regionID,
+            idPeriodo: lastPeriod, 
+            fechaRegistro: today,
+            estado: "EN PROCESO",
+            tipoIDCliente: sessionStorage.getItem("tipoID"),
+            numeroIDCliente: sessionStorage.getItem("numeroID"),
+            tipoIDCalif: sessionStorage.getItem("tipoID"),
+            numeroIDCalif: sessionStorage.getItem("numeroID"),
+            calificacion: null,
+            cantidad: quantity,
+            tipoIDRV: idTypeRV,
+            numeroIDRV: idNumberRV
+        })
+        .then(() => {
+            alert("Producto agregado al carrito");
+        })
+        .catch(err => {
+            console.log(err)
+        })
+
+        //addProduct(info,quantity, idLastOrder, idProduct, regionID);
     }
     
     return (

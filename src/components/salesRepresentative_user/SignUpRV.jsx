@@ -64,8 +64,22 @@ const SignUpRV = () => {
                 username: username,
                 estado: "ACTIVO"
             })
-            .then(res => {
+            .then(() => {
                 alert("Representante creado con éxito");
+                setIdType("");
+                setIdNumber();
+                setName("");
+                setLastName("")
+                setGenre("");
+                setBirthDate("");
+                setTypePosition("");
+                setAddress("");
+                setContractDate("");
+                setRegion("");
+                setEmail("");
+                setUsername("");
+                setPassword("");
+                setPasswordConfirmation("");
             })
             .catch(err => {
                 console.log(err)

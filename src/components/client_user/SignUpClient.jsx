@@ -47,8 +47,21 @@ const SignUpClient = () => {
                     direccion: address,
                     username: username
                 })
-                .then((res) => {
+                .then(() => {
                     alert("Cliente creado con éxito");
+                    setIdType("");
+                    setIdNumber();
+                    setName("");
+                    setLastName("")
+                    setGenre("");
+                    setCity("");
+                    setAddress("");
+                    setBirthDate("");
+                    setPhoneNumber();
+                    setEmail("");
+                    setUsername("");
+                    setPassword("");
+                    setPasswordConfirmation("");
                 }).catch((err) => {
                     console.log(err)
                 })

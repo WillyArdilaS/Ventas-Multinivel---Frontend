@@ -1,4 +1,5 @@
 import React, { useState,useContext } from 'react';
+import axios from 'axios';
 
 const CartContext = React.createContext([]);
 
@@ -12,9 +13,23 @@ const CartProvider = ({children}) =>{
         return cart.find(product => product.id == id) ? true : false
     }
 
-    const addProduct = (item,quantity)=>{
+    const addProduct = (item,quantity, idLastOrder, idProduct, regionID)=>{
         if(quantity > 0) {
             if (isInCart(item.id)) {
+                axios.put('', {
+                    idOrden: idLastOrder,
+                    idProducto: idProduct,
+                    idRegion: regionID,
+                    tipoId: sessionStorage.getItem("tipoID"),
+                    numeroId: sessionStorage.getItem("numeroID")
+                })
+                .then(res => {
+                    alert('Cantidad de producto actualizado a ' + quantity);
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+
                 setCart(cart.map(product =>{
                     alert('Cantidad de producto actualizado a ' + quantity)
                     return product.id === item.id ? {... product, quantity: quantity} : product
