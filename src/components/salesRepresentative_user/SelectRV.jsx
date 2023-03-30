@@ -65,10 +65,13 @@ const InfoCard = () => {
 
     }
 
-    function updateRV(){
-        axios.put('http://localhost:8080/cliente/cambioRV',{tipoIdCliente:'CC',idCliente:'65413165',tipoIdRV:idTypeRV,idRV:idRV})
+    const updateRV=()=>{
+        
+        axios.put('http://localhost:8080/cliente/cambioRV',{tipoIdCliente:sessionStorage.getItem("tipoID"),idCliente:sessionStorage.getItem("numeroID"),tipoIdRV:idTypeRV,idRV:idRV})
         .then((res)=>{
             alert("Representante actualizado con éxito");
+            navigate("/ShowRV");
+
         }).catch((err)=>{
             console.log(err)
         })
@@ -116,7 +119,7 @@ const InfoCard = () => {
                 </div>
 
                 <section className="flex justify-evenly mt-2">
-                    <input type="button" id="button-changeRV" value="Confirmar cambio"
+                    <input type="button" id="button-changeRV" value="Confirmar cambio" onClick={updateRV}
                         className={`flex justify-center w-1/3 px-5 py-3 border-white border-x-2 border-y-2 rounded-lg bg-white shadow-lg text-darkBlue text-sm font-semibold 
                     font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`} />
 
