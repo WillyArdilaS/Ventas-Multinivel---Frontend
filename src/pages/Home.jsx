@@ -158,7 +158,7 @@ const Home = ({setIdNumber, gradient, color}) => {
                 </section>
 
                 <LateralMenu setIdNumber={setIdNumber} gradient={gradient} color={color}/>  
-                <ProductCatalog url={makeUrl()}/>
+                <ProductCatalog url={makeUrl()} regionID={regionID}/>
             </div>    
         </>
     )

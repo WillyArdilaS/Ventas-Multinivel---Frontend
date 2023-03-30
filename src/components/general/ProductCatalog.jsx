@@ -2,7 +2,7 @@ import ProductCard from "./ProductCard"
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const ProductCatalog = ({ url }) => {
+const ProductCatalog = ({url, regionID}) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const ProductCatalog = ({ url }) => {
       <section className="grid grid-cols-3 2xl:grid-cols-4 h-fit mt-24 pb-6">
         {
           products.map(product => (
-            <ProductCard key={product.id} info={product} />
+            <ProductCard key={product.id} info={product} regionID={regionID}/>
           ))
         }
       </section>

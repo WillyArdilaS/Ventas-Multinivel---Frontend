@@ -15,7 +15,6 @@ const LogIn = ({setIdNumber}) => {
                 if(res.data.estado == "ACTIVO") {
                     axios.post('http://localhost:8080/database', null, {params:{username: username, password: password}})
                     .then(() => {
-                        console.log(res.data.rol)
                         if(res.data.rol == "CLIENTE") {
                             axios.get(`http://localhost:8080/cliente_por_email_password/${username}/${password}`)
                             .then(response => {
@@ -61,7 +60,7 @@ const LogIn = ({setIdNumber}) => {
     }
 
     return (
-        <main className="container flex justify-center mx-auto mt-40">
+        <main className="container flex justify-center mx-auto mt-24 2xl:mt-40">
             <article id="userSign" className={`w-3/5 2xl:w-1/5 xl:w-1/4 lg:w-1/3 md:w-2/5 sm:w-1/2 absolute rounded-t-2xl shadow-xl rounded-b-xl bg-gradient-to-b 
             from-lightGreen to-darkGreen `}>
                 <img src="https://res.cloudinary.com/dn1k0drir/image/upload/v1679111733/NatAmE/Logo_oeniv6.png" alt="Logo de la app" id="appLogo" width="350" height="250" 

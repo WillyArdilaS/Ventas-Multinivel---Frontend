@@ -1,13 +1,59 @@
 import { useCartContext } from '../../context/CartContext'
 import { useState } from 'react'
+import axios from "axios"
 
-
-const ProductCard = ({info}) => {
-    const { addProduct } = useCartContext();
+const ProductCard = ({info, regionID}) => {
+    const {addProduct} = useCartContext();
     const [quantity, setQuantity] = useState(0)
+    const [idTypeRV, setIdTypeRV] = useState("")
+    const [idNumberRV, setIdNumberRV] = useState()
+    const [idLastOrder, setIdLastOrder] = useState()
+
+    var today = new Date()
+    today = today.getDate() + '/' + (today.getMonth()+1) + '/' + today.getFullYear();
     
     const onAdd = () =>{
-        addProduct(info,quantity)
+        axios.get(`http://localhost:8080/cliente/representante/${sessionStorage.getItem("numeroID")}/${sessionStorage.getItem("tipoID")}`)
+        .then((res) => {
+            setIdTypeRV(res.data.id.kTipoId)
+            setIdNumberRV(res.data.id.kNumeroId)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+
+        axios.get('http://localhost:8080/orden/maxima')
+        .then(res => {
+            setIdLastOrder(res.data.id.idOrden + 1);
+        })
+        .catch(err => {
+            console.log(err)
+        }) 
+
+        // axios.post('http://localhost:8080/nuevaOrden', {
+        //     idOrden: idLastOrder,
+        //     idProducto: info.id,
+        //     idRegion: regionID,
+        //     idPeriodo: , 
+        //     fechaRegistro: today,
+        //     estado: "EN CARRITO",
+        //     tipoIDCliente: sessionStorage.getItem("tipoID"),
+        //     numeroIDCliente: sessionStorage.getItem("numeroID"),
+        //     tipoIDCalif: sessionStorage.getItem("tipoID"),
+        //     numeroIDCalif: sessionStorage.getItem("numeroID"),
+        //     calificacion: null,
+        //     cantidad: quantity,
+        //     tipoIDRV: idTypeRV,
+        //     numeroIDRV: idNumberRV
+        // })
+        // .then(() => {
+        //     alert("Producto agregado al carrito");
+        // })
+        // .catch(err => {
+        //     console.log(err)
+        // })
+
+        // addProduct(info,quantity);
     }
     
     return (
