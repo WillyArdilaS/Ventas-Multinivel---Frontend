@@ -12,13 +12,13 @@ const ProductCard = ({user, info}) => {
     
     return (
         <article id="productCard" className="w-2/3 flex flex-col items-center mx-auto mb-36 px-6 bg-white shadow-md rounded-md">
-            <img src={info.ruta_imagen} alt="Imagen del producto" id="productImage" width="200" 
+            <img src={info.url} alt="Imagen del producto" id="productImage" width="200" 
             height="100" className="-mt-14"/>
-            <h2 className="mt-2 text-yellow text-xl font-title font-bold"> {info.nombre} </h2>
+            <h2 className="mt-2 text-yellow text-xl font-title font-bold"> {info.nombreProducto} </h2>
 
             <div id="details-quantity" className="flex items-center mt-4">
                 <h3 className="ml-1 text-sm text-center text-black font-paragraph font-semibold"> Cantidad disponible: </h3>
-                <h3 className="ml-1 mr-5 text-sm text-center text-black font-paragraph"> 0 </h3> {/* Atualizar el stock despues de la peticion a la BD*/}
+                <h3 className="ml-1 mr-5 text-sm text-center text-black font-paragraph"> {info.stock} </h3> {/* Atualizar el stock despues de la peticion a la BD*/}
             </div>
 
             <div id="productCard-details" className="flex justify-between items-center mt-4">

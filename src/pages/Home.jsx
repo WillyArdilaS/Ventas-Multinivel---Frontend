@@ -11,8 +11,9 @@ const Home = ({setIdNumber, gradient, color}) => {
     const [categorieName, setCategorieName] = useState("");
     const [categorieID, setCategorieID] = useState(0)
     const [subcategorieList, setSubcategorieList] = useState([]);
+    const [subCategorieID, setSubCategorieID] = useState(0)
     const [subcategorie, setSubcategorie] = useState("");
-
+    const [ruta, setRuta] = useState("")
     useEffect(() => {
         setRegionList([]);
 
@@ -64,7 +65,7 @@ const Home = ({setIdNumber, gradient, color}) => {
         }
     }, [categorieName]);
 
-    
+
 
     const selectRegion = (e) => {
         setRegionName(e);
@@ -85,6 +86,35 @@ const Home = ({setIdNumber, gradient, color}) => {
         })
     }
 
+    const selectSubcategorie = (e) => {
+        setSubcategorie(e);
+        subcategorieList.map(subcategorie => {
+            if(subcategorie.nNombre == e) {
+                setSubCategorieID(subcategorie.id);
+                
+            }
+        })
+    }
+
+    
+    
+    function makeUrl(){
+        const basis ='http://localhost:8080/regiones/'+regionID+'/'
+        let url;
+        if(regionName!='' && categorieName!=''){
+            if(subcategorie ==''){
+                url=basis.concat('productosPorCategoria/',categorieID)
+            } else {
+                url=basis.concat('productosPorSubcategoria/',subCategorieID)
+            }
+        } else {
+            url=''
+        }
+
+        return url
+    }
+
+    
     return (
         <>
             <div className="relative h-screen">
@@ -120,7 +150,7 @@ const Home = ({setIdNumber, gradient, color}) => {
                             <div id="form-subcategorie">
                                 <label htmlFor="subcategorie"></label>
                                 <select name="subcategorie" id="subcategorie" value={subcategorie} className="w-56 px-3 py-2 rounded-md bg-white shadow-md 
-                                text-black font-medium font-title" onChange={(e) => setSubcategorie(e.target.value)} required>
+                                text-black font-medium font-title" onChange={(e) => selectSubcategorie(e.target.value)} required>
                                     <option value="" disabled hidden> Subcategoría </option>
                                     {
                                         subcategorieList.map((subcategorie, index) => {
@@ -134,7 +164,8 @@ const Home = ({setIdNumber, gradient, color}) => {
                 </section>
 
                 <LateralMenu setIdNumber={setIdNumber} gradient={gradient} color={color}/>
-                <ProductCatalog/>
+               
+                <ProductCatalog url={makeUrl()}/>
             </div>    
         </>
     )
