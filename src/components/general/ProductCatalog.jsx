@@ -6,9 +6,8 @@ const ProductCatalog = ({url, regionID}) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    if (url != '') {
+    if (url != '' && url != undefined) {
       setProducts([])
-
       axios.get(url)
       .then((res) => {
           res.data.map(item=>{
@@ -18,8 +17,6 @@ const ProductCatalog = ({url, regionID}) => {
       .catch((err) => {
           console.log(err)
       })
-    } else {
-      console.log(url)
     }
   }, [url])
 

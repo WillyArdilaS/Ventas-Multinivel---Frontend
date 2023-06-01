@@ -37,7 +37,7 @@ const LateralMenu = ({setIdNumber, gradient, color}) => {
     }
 
     const handleLogOut = () => {
-        axios.post("http://localhost:8080/database/logout")
+        axios.post("http://localhost:8080/api/auth/logout")
         .then(() => {
             alert("Sesión cerrada");
             

@@ -103,7 +103,7 @@ const SignUpRV = () => {
                             font-medium font-title placeholder-slate-400" onChange={(e) => setIdType(e.target.value)} required>
                                 <option value="" disabled hidden> Tipo ID </option>
                                 <option value="CC">C.C</option>
-                                <option value="TI">T.I</option>
+                                <option value="CE">C.E</option>
                             </select> 
                         </div>
 

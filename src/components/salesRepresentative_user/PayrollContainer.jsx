@@ -7,9 +7,10 @@ const PayrollContainer = () => {
 
    useEffect(()=>{
 
-      axios.get('http://localhost:8080/nomina')
+      axios.get('http://localhost:8080/procedures/nomina')
       .then(res => {
          res.data.map(item => {
+            console.log(item);
             setPayrolls(element => [...element, item]);
          })
       })

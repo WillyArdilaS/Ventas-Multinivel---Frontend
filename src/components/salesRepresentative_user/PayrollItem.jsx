@@ -5,20 +5,20 @@ const PayrollItem = ({ payroll }) => {
     const [percentage, setPercentage] = useState(0);
 
     useEffect(() => {
-        if(payroll.CARGO == "BEGINNER")  {
-            setPercentage(5);
-        } else if(payroll.CARGO == "JUNIOR") {
-            setPercentage(10);
-        } else if(payroll.CARGO == "SENIOR") {
-            setPercentage(15);
-        } else if(payroll.CARGO == "MASTER") {
-            setPercentage(20);
+        if(payroll.cargo == "BEGINNER")  {
+            setPercentage(40);
+        } else if(payroll.cargo == "JUNIOR") {
+            setPercentage(60);
+        } else if(payroll.cargo == "SENIOR") {
+            setPercentage(80);
+        } else if(payroll.cargo == "MASTER") {
+            setPercentage(100);
         }
 
-        if(payroll.ESTADO == "SUBE") {
+        if(payroll.estado == "SUBE") {
             setArrowState(<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="darkGreen" className="w-7 h-7">
             <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg>);
-        } else if(payroll.ESTADO == "BAJA") {
+        } else if(payroll.estado == "BAJA") {
             setArrowState(<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="red" className="w-7 h-7 -scale-y-100">
             <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg>);
         } else {
@@ -29,22 +29,22 @@ const PayrollItem = ({ payroll }) => {
     return (
         <tr className="border-b-2 border-yellow text-black text-base font-semibold font-paragraph">
             <td className="px-6 py-3 text-left">
-                {payroll.NOMBRE + " " + payroll.APELLIDO}
+                {payroll.nombre + " " + payroll.apellido}
             </td>
             <td className="p-3 text-center">
-                {payroll.CARGO.toLowerCase()}
+                {payroll.cargo.toLowerCase()}
             </td>
             <td className="p-3 text-center">
                 {percentage}%
             </td>
             <td className="p-3 text-center">
-                {payroll.NUM_VENTAS}
+                {payroll.numVentas}
             </td>
             <td className="p-3 text-center">
-                {payroll.CALIFICACION}
+                {payroll.calificacion}
             </td>
             <td className="p-3 text-center">
-                ${payroll.COMISION_TOTAL}
+                ${payroll.comision}
             </td>
             <td className="flex justify-center p-3 text-center">
                 {arrowState}

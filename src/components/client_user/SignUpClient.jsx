@@ -12,62 +12,48 @@ const SignUpClient = () => {
     const [birthDate, setBirthDate] = useState("");
     const [phoneNumber, setPhoneNumber] = useState();
     const [email, setEmail] = useState("");
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [passwordConfirmation, setPasswordConfirmation] = useState("");
+    const [account, setAccount] = useState();
 
     const handleCreateUser = () => {
-        if (password == passwordConfirmation) {
-            var today = new Date()
-            today = today.getDate() + '/' + (today.getMonth()+1) + '/' + today.getFullYear();
+        var today = new Date()
+        today = today.getDate() + '/' + (today.getMonth()+1) + '/' + today.getFullYear();
 
-            var birth = new Date(birthDate);
-            birth = birth.getDate() + '/' + (birth.getMonth()+1) + '/' + birth.getFullYear();
-
-            console.log('fech c:'+today)
-            console.log('fech n'+birth)
-            
-            axios.post(`http://localhost:8080/cliente/save`,
-                {
-                    tipoId: idType,
-                    numeroId: Number(idNumber),
-                    tipoIdRep: sessionStorage.getItem("tipoID"),
-                    numeroIdRep: Number(sessionStorage.getItem("numeroID")),
-                    tipoIdRepInicial: sessionStorage.getItem("tipoID"),
-                    numeroIdRepInicial: Number(sessionStorage.getItem("numeroID")),
-                    nombreCompleto: name,
-                    apellidoCompleto: lastName,
-                    fechaCreacion: today,
-                    email: email,
-                    telefono: Number(phoneNumber),
-                    ciudad: city,
-                    genero: genre,
-                    password: password,
-                    fNacimiento: birth,
-                    direccion: address,
-                    username: username
-                })
-                .then(() => {
-                    alert("Cliente creado con éxito");
-                    setIdType("");
-                    setIdNumber();
-                    setName("");
-                    setLastName("")
-                    setGenre("");
-                    setCity("");
-                    setAddress("");
-                    setBirthDate("");
-                    setPhoneNumber();
-                    setEmail("");
-                    setUsername("");
-                    setPassword("");
-                    setPasswordConfirmation("");
-                }).catch((err) => {
-                    console.log(err)
-                })
-        } else {
-            alert('Las contaseñas no coinciden')
-        }
+        var birth = new Date(birthDate);
+        birth = birth.getDate() + '/' + (birth.getMonth()+1) + '/' + birth.getFullYear();
+        
+        axios.post(`http://localhost:8080/clientes/save`,
+            {
+                tipoId: idType,
+                numeroId: Number(idNumber),
+                tipoIdRep: sessionStorage.getItem("tipoID"),
+                numeroIdRep: Number(sessionStorage.getItem("numeroID")),
+                nombreCompleto: name,
+                apellidoCompleto: lastName,
+                fechaCreacion: today,
+                email: email,
+                telefono: Number(phoneNumber),
+                ciudad: city,
+                genero: genre,
+                cuenta: Number(account),
+                fNacimiento: birth,
+                direccion: address,
+            })
+            .then(() => {
+                alert("Cliente creado con éxito");
+                setIdType("");
+                setIdNumber();
+                setName("");
+                setLastName("")
+                setGenre("");
+                setCity("");
+                setAddress("");
+                setBirthDate("");
+                setPhoneNumber();
+                setEmail("");
+                setAccount("");
+            }).catch((err) => {
+                console.log(err)
+            })
     };
 
     return (
@@ -84,7 +70,7 @@ const SignUpClient = () => {
                              font-medium font-title" onChange={(e) => setIdType(e.target.value)} required>
                                 <option value="" disabled hidden> Tipo ID </option>
                                 <option value="CC"> C.C </option>
-                                <option value="TI"> T.I </option>
+                                <option value="CE"> C.E </option>
                             </select>
                         </div>
 
@@ -168,26 +154,13 @@ const SignUpClient = () => {
                         shadow-md text-black font-medium font-title placeholder-slate-400" onChange={(e) => setEmail(e.target.value)} required />
                     </div>
 
-                    <div id="form-username" className="flex justify-center">
-                        <label htmlFor="username"></label>
-                        <input type="text" name="username" id="username" value={username} placeholder="Nombre de usuario" className="w-4/5 mb-6 px-3 py-2 rounded-md bg-white 
-                        shadow-md text-black font-medium font-title placeholder-slate-400" onChange={(e) => setUsername(e.target.value)} required />
+                    <div id="form-account" className="flex justify-center">
+                        <label htmlFor="account"></label>
+                        <input type="text" name="account" id="account" value={account} placeholder="Numero de cuenta" className="w-4/5 mb-6 px-3 py-2 rounded-md bg-white 
+                        shadow-md text-black font-medium font-title placeholder-slate-400" onChange={(e) => setAccount(e.target.value)} required />
                     </div>
 
-                    <div id="form-password" className="flex justify-center">
-                        <label htmlFor="password"></label>
-                        <input type="password" name="password" id="password" placeholder="Contraseña" value={password} className="w-4/5 mb-6 px-3 py-2 rounded-md bg-white 
-                        shadow-md text-black font-medium font-title placeholder-slate-400" onChange={(e) => setPassword(e.target.value)} required />
-                    </div>
-
-                    <div id="form-confirmPassword" className="flex justify-center">
-                        <label htmlFor="confirmPassword"></label>
-                        <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirmar contraseña" value={passwordConfirmation} className="w-4/5 px-3 
-                        py-2 rounded-md bg-white shadow-md text-black font-medium font-title placeholder-slate-400"
-                            onChange={(e) => setPasswordConfirmation(e.target.value)} required />
-                    </div>
-
-                    <section className="flex justify-center pb-6 mt-12">
+                    <section className="flex justify-center pb-6 mt-8">
                         <input type="button" id="button-signUp" value="Crear cuenta" onClick={handleCreateUser}
                             className={`flex justify-center w-1/3 px-5 py-3 border-white border-x-2 border-y-2 rounded-lg bg-white shadow-lg text-darkGreen text-sm font-semibold 
                         font-title hover:cursor-pointer hover:bg-transparent hover:text-white transition-colors`} />

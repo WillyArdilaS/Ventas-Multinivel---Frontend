@@ -17,7 +17,7 @@ const Home = ({setIdNumber, gradient, color}) => {
     useEffect(() => {
         setRegionList([]);
 
-        axios.get('http://localhost:8080/regiones')
+        axios.get('http://localhost:8080/regiones/all')
         .then((res) => {
             res.data.map(item => {
                 setRegionList(element => [...element, item]);
@@ -32,7 +32,7 @@ const Home = ({setIdNumber, gradient, color}) => {
         if(regionName.length > 0) {
             setCategorieList([]);
 
-            axios.get(`http://localhost:8080/categorias/${regionID}`)
+            axios.get(`http://localhost:8080/categorias/region/${regionID}`)
             .then((res) => {
                 res.data.map(item => {
                     setCategorieList(element => [...element, item]);
@@ -48,7 +48,7 @@ const Home = ({setIdNumber, gradient, color}) => {
         if(categorieName.length > 0) {
             setSubcategorieList([]);
 
-            axios.get(`http://localhost:8080/subcategorias/${categorieID}`)
+            axios.get(`http://localhost:8080/categorias/subcategorias/${categorieID}`)
             .then((res) => {
                 if(res.data.length==0){
                     setSubcategorieName("")
@@ -76,10 +76,11 @@ const Home = ({setIdNumber, gradient, color}) => {
 
     const selectCategorie = (e) => {
         setCategorieName(e);
+        setSubcategorieName("");
+
         categorieList.map(categorie => {
             if(categorie.nombreCategoria == e) {
-                setCategorieID(categorie.id);
-                
+                setCategorieID(categorie.id);   
             }
         })
     }
@@ -87,21 +88,18 @@ const Home = ({setIdNumber, gradient, color}) => {
     const selectSubcategorie = (e) => {
         setSubcategorieName(e);
         subcategorieList.map(subcategorie => {
-            if(subcategorie.nNombre == e) {
+            if(subcategorie.nombre == e) {
                 setSubCategorieID(subcategorie.id);
             }
         })
     }
 
     function makeUrl(){
-        const basis ='http://localhost:8080/regiones/'+regionID+'/'
         let url;
         if(regionName!='' && categorieName!=''){
-            if(subcategorieName ==''){
-                url=basis.concat('productosPorCategoria/',categorieID)
-            } else {
-                url=basis.concat('productosPorSubcategoria/',categorieID)
-            }
+            if(subcategorieName != ''){
+                url = 'http://localhost:8080/producto/region/'+regionID+'/categoria/'+subCategorieID;
+            } 
         } else {
             url=''
         }
@@ -148,7 +146,7 @@ const Home = ({setIdNumber, gradient, color}) => {
                                     <option value="" disabled hidden> Subcategoría </option>
                                     {
                                         subcategorieList.map((subcategorie, index) => {
-                                            return(<option key={index} value={subcategorie.nNombre}> {subcategorie.nNombre} </option>);
+                                            return(<option key={index} value={subcategorie.nombre}> {subcategorie.nombre} </option>);
                                         })
                                     }
                                 </select> 

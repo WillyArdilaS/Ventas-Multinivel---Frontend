@@ -29,7 +29,7 @@ function App() {
     } else if(sessionStorage.getItem("role") == "REPRESENTANTE") {
       setGradient("from-lightBlue to-darkBlue")
       setColor("darkBlue"); 
-    } else if(sessionStorage.getItem("role") == "REPRESENTANTE MASTER") {
+    } else if(sessionStorage.getItem("role") == "MASTER") {
       setGradient("from-lightBlue to-darkBlue")
       setColor("darkBlue"); 
     } 

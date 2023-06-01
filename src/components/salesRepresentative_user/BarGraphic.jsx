@@ -12,7 +12,6 @@ const BarGraphic = ({period}) => {
   useEffect(() => {
     axios.get(`http://localhost:8080/estadisticas/topRepresentantes/${period}`)
       .then((res) => {
-        console.log(res.data)
         res.data.map(item => {
           setLabels(element => [...element, item['Representante De Ventas']])
           setSales(element => [...element, Number(item['Producto Vendido'])])
